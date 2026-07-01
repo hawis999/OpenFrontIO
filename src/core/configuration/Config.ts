@@ -311,6 +311,20 @@ export class Config {
               Math.min(1_000_000, Math.pow(2, numUnits) * 125_000),
             UnitType.Port,
             UnitType.Factory,
+            UnitType.Airport,
+          ),
+          constructionDuration: this.instantBuild() ? 0 : 5 * 10,
+          upgradable: true,
+        };
+        break;
+      case UnitType.Airport:
+        info = {
+          cost: this.costWrapper(
+            (numUnits: number) =>
+              Math.min(1_000_000, Math.pow(2, numUnits) * 125_000),
+            UnitType.Airport,
+            UnitType.Factory,
+            UnitType.Port,
           ),
           constructionDuration: this.instantBuild() ? 0 : 5 * 10,
           upgradable: true,
@@ -396,6 +410,7 @@ export class Config {
               Math.min(1_000_000, Math.pow(2, numUnits) * 125_000),
             UnitType.Factory,
             UnitType.Port,
+            UnitType.Airport,
           ),
           constructionDuration: this.instantBuild() ? 0 : 2 * 10,
           upgradable: true,

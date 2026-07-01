@@ -55,6 +55,7 @@
   },
   "build_menu": {
     "desc": {
+      "airport": "Air trade with other airports",
       "atom_bomb": "Small explosion",
       "city": "Increases max population",
       "defense_post": "Increases defenses of nearby borders",
@@ -1343,6 +1344,7 @@
     "yes": "Yes"
   },
   "unit_type": {
+    "airport": "Airport",
     "atom_bomb": "Atom Bomb",
     "boat": "Boat",
     "city": "City",
@@ -1378,6 +1380,8 @@
     "boat_attack_desc": "Send a boat attack to the tile under your cursor.",
     "break_alliance": "Break Alliance (Betray)",
     "break_alliance_desc": "Break alliance with the player whose tile is under your cursor.",
+    "build_airport": "Build Airport",
+    "build_airport_desc": "Build an Airport under your cursor.",
     "build_atom_bomb": "Build Atom Bomb",
     "build_atom_bomb_desc": "Build an Atom Bomb under your cursor.",
     "build_city": "Build City",

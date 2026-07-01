@@ -12,6 +12,7 @@ import {
   BOMB_INDEX_LAND,
   BOMB_INDEX_LAUNCH,
   GOLD_INDEX_STEAL,
+  GOLD_INDEX_AIR_TRADE,
   GOLD_INDEX_TRADE,
   GOLD_INDEX_TRAIN_OTHER,
   GOLD_INDEX_TRAIN_SELF,
@@ -196,6 +197,11 @@ export class StatsImpl implements Stats {
     this._addBoat(player, "trade", BOAT_INDEX_ARRIVE, 1);
     this._addGold(player, GOLD_INDEX_TRADE, gold);
     this._addGold(target, GOLD_INDEX_TRADE, gold);
+  }
+
+  airTrade(player: Player, target: Player, gold: BigIntLike): void {
+    this._addGold(player, GOLD_INDEX_AIR_TRADE, gold);
+    this._addGold(target, GOLD_INDEX_AIR_TRADE, gold);
   }
 
   boatCapturedTrade(player: Player, target: Player, gold: BigIntLike): void {

@@ -1,5 +1,6 @@
 import { Execution, Game, Player, Tick, Unit, UnitType } from "../game/Game";
 import { TileRef } from "../game/GameMap";
+import { AirportExecution } from "./AirportExecution";
 import { CityExecution } from "./CityExecution";
 import { DefensePostExecution } from "./DefensePostExecution";
 import { FactoryExecution } from "./FactoryExecution";
@@ -127,6 +128,9 @@ export class ConstructionExecution implements Execution {
       case UnitType.Port:
         this.mg.addExecution(new PortExecution(this.structure!));
         break;
+      case UnitType.Airport:
+        this.mg.addExecution(new AirportExecution(this.structure!));
+        break;
       case UnitType.MissileSilo:
         this.mg.addExecution(new MissileSiloExecution(this.structure!));
         break;
@@ -155,6 +159,7 @@ export class ConstructionExecution implements Execution {
   private isStructure(type: UnitType): boolean {
     switch (type) {
       case UnitType.Port:
+      case UnitType.Airport:
       case UnitType.MissileSilo:
       case UnitType.DefensePost:
       case UnitType.SAMLauncher:

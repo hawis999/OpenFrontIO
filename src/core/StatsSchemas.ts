@@ -31,6 +31,7 @@ export const otherUnits = [
   "city",
   "defp",
   "port",
+  "airp",
   "wshp",
   "silo",
   "saml",
@@ -43,6 +44,7 @@ export type OtherUnitType =
   | UnitType.DefensePost
   | UnitType.MissileSilo
   | UnitType.Port
+  | UnitType.Airport
   | UnitType.SAMLauncher
   | UnitType.Warship
   | UnitType.Factory;
@@ -52,6 +54,7 @@ export const unitTypeToOtherUnit = {
   [UnitType.DefensePost]: "defp",
   [UnitType.MissileSilo]: "silo",
   [UnitType.Port]: "port",
+  [UnitType.Airport]: "airp",
   [UnitType.SAMLauncher]: "saml",
   [UnitType.Warship]: "wshp",
   [UnitType.Factory]: "fact",
@@ -85,6 +88,7 @@ export const GOLD_INDEX_TRADE = 2; // Gold earned by trade ships
 export const GOLD_INDEX_STEAL = 3; // Gold earned by capturing trade ships
 export const GOLD_INDEX_TRAIN_SELF = 4; // Gold earned by own trains
 export const GOLD_INDEX_TRAIN_OTHER = 5; // Gold earned by other players trains
+export const GOLD_INDEX_AIR_TRADE = 6; // Gold earned by airport trade
 
 // Other Units
 export const OTHER_INDEX_BUILT = 0; // Structures and warships built

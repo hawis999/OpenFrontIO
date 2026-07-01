@@ -66,6 +66,9 @@ export class SoundEffectController implements Controller {
       case UnitType.Port:
         if (unit.owner() === myPlayer) this.emit("build-port");
         break;
+      case UnitType.Airport:
+        if (unit.owner() === myPlayer) this.emit("build-port");
+        break;
       case UnitType.DefensePost:
         if (unit.owner() === myPlayer) this.emit("build-defense-post");
         break;

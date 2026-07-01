@@ -34,6 +34,9 @@ export interface Stats {
   // Player's trade ship arrives at target, both players earn gold
   boatArriveTrade(player: Player, target: Player, gold: number | bigint): void;
 
+  // Player's airport completes a trade with target, both players earn gold
+  airTrade(player: Player, target: Player, gold: number | bigint): void;
+
   // Player's trade ship, captured from target, arrives. Player earns gold.
   boatCapturedTrade(
     player: Player,

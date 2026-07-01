@@ -18,6 +18,7 @@ import { GameView } from "../../view";
 const warshipIcon = assetUrl("images/BattleshipIconWhite.svg");
 const cityIcon = assetUrl("images/CityIconWhite.svg");
 const factoryIcon = assetUrl("images/FactoryIconWhite.svg");
+const airportIcon = assetUrl("images/AirportIconWhite.svg");
 const goldCoinIcon = assetUrl("images/GoldCoinIcon.svg");
 const mirvIcon = assetUrl("images/MIRVIcon.svg");
 const missileSiloIcon = assetUrl("images/MissileSiloIconWhite.svg");
@@ -37,6 +38,7 @@ export class UnitDisplay extends LitElement implements Controller {
   private _cities = 0;
   private _warships = 0;
   private _factories = 0;
+  private _airports = 0;
   private _missileSilo = 0;
   private _port = 0;
   private _defensePost = 0;
@@ -97,6 +99,7 @@ export class UnitDisplay extends LitElement implements Controller {
     this._cities = player.totalUnitLevels(UnitType.City);
     this._missileSilo = player.totalUnitLevels(UnitType.MissileSilo);
     this._port = player.totalUnitLevels(UnitType.Port);
+    this._airports = player.totalUnitLevels(UnitType.Airport);
     this._defensePost = player.totalUnitLevels(UnitType.DefensePost);
     this._samLauncher = player.totalUnitLevels(UnitType.SAMLauncher);
     this._factories = player.totalUnitLevels(UnitType.Factory);
@@ -143,6 +146,13 @@ export class UnitDisplay extends LitElement implements Controller {
             UnitType.Port,
             "port",
             this.keybinds["buildPort"]?.key ?? "3",
+          )}
+          ${this.renderUnitItem(
+            airportIcon,
+            this._airports,
+            UnitType.Airport,
+            "airport",
+            this.keybinds["buildAirport"]?.key ?? "Shift+3",
           )}
           ${this.renderUnitItem(
             defensePostIcon,

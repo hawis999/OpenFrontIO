@@ -16,6 +16,7 @@ import type { RendererConfig, UnitState } from "../../types";
 import {
   STRUCTURE_TYPES,
   UT_CITY,
+  UT_AIRPORT,
   UT_DEFENSE_POST,
   UT_FACTORY,
   UT_MISSILE_SILO,
@@ -47,6 +48,7 @@ const msdfAtlasUrl = assetUrl("atlases/msdf-atlas.png");
 const STRUCTURE_ORDER = [
   UT_CITY,
   UT_PORT,
+  UT_AIRPORT,
   UT_FACTORY,
   UT_DEFENSE_POST,
   UT_SAM_LAUNCHER,
@@ -143,7 +145,7 @@ export class StructureLevelPass {
   private charCodes = new Uint8Array(MAX_CHARS);
   private cursors = new Float32Array(MAX_CHARS);
 
-  /** unitType string → atlas column index (0–5). */
+  /** unitType string → atlas column index. */
   private typeToAtlasCol = new Map<string, number>();
   /** Build-button hover highlight bitmask (0 = off). */
   private highlightMask = 0;
