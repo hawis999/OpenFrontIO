@@ -57,8 +57,8 @@ const ATLAS_COLS = STRUCTURE_ORDER.length;
 // Instance data layout
 // ---------------------------------------------------------------------------
 
-// Per-instance: x, y, ownerID, underConstruction, atlasIdx, markedForDeletion, level
-const FLOATS_PER_INSTANCE = 7;
+// Per-instance: x, y, ownerID, underConstruction, atlasIdx, markedForDeletion
+const FLOATS_PER_INSTANCE = 6;
 const BYTES_PER_INSTANCE = FLOATS_PER_INSTANCE * 4;
 
 // ---------------------------------------------------------------------------
@@ -73,7 +73,6 @@ export class StructurePass {
 
   private uLocalPlayerID: WebGLUniformLocation;
   private uCamera: WebGLUniformLocation;
-  private uTime: WebGLUniformLocation;
   private uZoom: WebGLUniformLocation;
   private uIconSize: WebGLUniformLocation;
   private uDotsThreshold: WebGLUniformLocation;
@@ -152,7 +151,6 @@ export class StructurePass {
       "uLocalPlayerID",
     )!;
     this.uCamera = gl.getUniformLocation(this.program, "uCamera")!;
-    this.uTime = gl.getUniformLocation(this.program, "uTime")!;
     this.uZoom = gl.getUniformLocation(this.program, "uZoom")!;
     this.uIconSize = gl.getUniformLocation(this.program, "uIconSize")!;
     this.uDotScale = gl.getUniformLocation(this.program, "uDotScale")!;
@@ -253,9 +251,9 @@ export class StructurePass {
     gl.vertexAttribPointer(1, 4, gl.FLOAT, false, BYTES_PER_INSTANCE, 0);
     gl.vertexAttribDivisor(1, 1);
 
-    // Attribute 2: per-instance vec3 (atlasIdx, markedForDeletion, level)
+    // Attribute 2: per-instance vec2 (atlasIdx, markedForDeletion)
     gl.enableVertexAttribArray(2);
-    gl.vertexAttribPointer(2, 3, gl.FLOAT, false, BYTES_PER_INSTANCE, 16);
+    gl.vertexAttribPointer(2, 2, gl.FLOAT, false, BYTES_PER_INSTANCE, 16);
     gl.vertexAttribDivisor(2, 1);
 
     gl.bindVertexArray(null);
@@ -303,7 +301,6 @@ export class StructurePass {
       this.instanceBuf.float32[off + 4] = atlasIdx;
       this.instanceBuf.float32[off + 5] =
         unit.markedForDeletion !== false ? 1 : 0;
-      this.instanceBuf.float32[off + 6] = unit.level;
 
       count++;
     }
@@ -357,7 +354,6 @@ export class StructurePass {
     const ss = this.settings.structure;
     gl.uniformMatrix3fv(this.uCamera, false, cameraMatrix);
     gl.uniform1f(this.uLocalPlayerID, this.localPlayerID);
-    gl.uniform1f(this.uTime, performance.now() / 1000);
     gl.uniform1f(this.uZoom, zoom);
     gl.uniform1f(this.uIconSize, ss.iconSize);
     gl.uniform1f(this.uDotsThreshold, ss.dotsZoomThreshold);
@@ -429,7 +425,6 @@ export class StructurePass {
         this.ghostBuf[3] = 0;
         this.ghostBuf[4] = atlasIdx;
         this.ghostBuf[5] = 0;
-        this.ghostBuf[6] = 1;
         gl.bufferSubData(gl.ARRAY_BUFFER, 0, this.ghostBuf);
 
         gl.uniform1f(this.uGhostAlpha, 0.6);
@@ -444,7 +439,6 @@ export class StructurePass {
       this.ghostBuf[3] = 0;
       this.ghostBuf[4] = atlasIdx;
       this.ghostBuf[5] = 0;
-      this.ghostBuf[6] = 1;
       gl.bufferSubData(gl.ARRAY_BUFFER, 0, this.ghostBuf);
 
       gl.uniform1f(this.uGhostAlpha, 0.5);
@@ -460,7 +454,7 @@ export class StructurePass {
       // Restore instance attrs to main buffer
       gl.bindBuffer(gl.ARRAY_BUFFER, this.instanceBuf.buffer);
       gl.vertexAttribPointer(1, 4, gl.FLOAT, false, BYTES_PER_INSTANCE, 0);
-      gl.vertexAttribPointer(2, 3, gl.FLOAT, false, BYTES_PER_INSTANCE, 16);
+      gl.vertexAttribPointer(2, 2, gl.FLOAT, false, BYTES_PER_INSTANCE, 16);
     }
   }
 

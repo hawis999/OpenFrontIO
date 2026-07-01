@@ -41,65 +41,6 @@ const vec3 FLICKER_COLORS[4] = vec3[4](
   vec3(1.0, 1.0, 1.0)    // white
 );
 
-float boxMask(vec2 p, vec2 center, vec2 halfSize, float softness) {
-  vec2 d = abs(p - center) - halfSize;
-  float outside = length(max(d, 0.0)) + min(max(d.x, d.y), 0.0);
-  return 1.0 - smoothstep(0.0, softness, outside);
-}
-
-float lineMask(vec2 p, vec2 a, vec2 b, float width) {
-  vec2 ab = b - a;
-  float t = clamp(dot(p - a, ab) / dot(ab, ab), 0.0, 1.0);
-  float d = length(p - (a + ab * t));
-  return 1.0 - smoothstep(width, width + fwidth(d) * 2.0, d);
-}
-
-float triangleMask(vec2 p, vec2 a, vec2 b, vec2 c, float softness) {
-  vec2 e0 = b - a;
-  vec2 e1 = c - b;
-  vec2 e2 = a - c;
-  float s0 = e0.x * (p.y - a.y) - e0.y * (p.x - a.x);
-  float s1 = e1.x * (p.y - b.y) - e1.y * (p.x - b.x);
-  float s2 = e2.x * (p.y - c.y) - e2.y * (p.x - c.x);
-  float inside = min(min(s0, s1), s2);
-  return smoothstep(-softness, softness, inside);
-}
-
-vec4 cargoShipSprite(vec2 uv) {
-  vec2 p = uv - 0.5;
-  float soft = max(0.012, fwidth(p.x) * 1.5);
-  float hull = boxMask(p, vec2(0.0, -0.12), vec2(0.36, 0.085), soft);
-  hull = max(hull, triangleMask(p, vec2(0.34, -0.205), vec2(0.48, -0.12), vec2(0.34, -0.035), soft));
-  float cabin = boxMask(p, vec2(-0.20, 0.03), vec2(0.09, 0.10), soft);
-  float stack = boxMask(p, vec2(-0.29, 0.15), vec2(0.035, 0.07), soft);
-  float c1 = boxMask(p, vec2(-0.03, 0.02), vec2(0.085, 0.08), soft);
-  float c2 = boxMask(p, vec2(0.15, 0.02), vec2(0.085, 0.08), soft);
-  float wave = lineMask(p, vec2(-0.42, -0.27), vec2(0.42, -0.27), 0.018);
-  float alpha = clamp(hull + cabin + stack + c1 + c2 + wave * 0.55, 0.0, 1.0);
-  float gray = mix(0.70, 0.27, max(wave, max(stack, boxMask(p, vec2(0.0, -0.20), vec2(0.35, 0.025), soft))));
-  gray = mix(gray, 0.51, max(c1, c2));
-  return vec4(vec3(gray), alpha);
-}
-
-vec4 battleshipSprite(vec2 uv) {
-  vec2 p = uv - 0.5;
-  float soft = max(0.010, fwidth(p.x) * 1.5);
-  float hull = boxMask(p, vec2(0.0, -0.10), vec2(0.38, 0.08), soft);
-  hull = max(hull, triangleMask(p, vec2(0.34, -0.18), vec2(0.50, -0.10), vec2(0.34, -0.02), soft));
-  float deck = boxMask(p, vec2(-0.02, 0.02), vec2(0.25, 0.045), soft);
-  float turretA = boxMask(p, vec2(-0.17, 0.105), vec2(0.07, 0.055), soft);
-  float turretB = boxMask(p, vec2(0.07, 0.115), vec2(0.065, 0.055), soft);
-  float bridge = boxMask(p, vec2(-0.02, 0.20), vec2(0.055, 0.08), soft);
-  float barrelA = lineMask(p, vec2(-0.12, 0.13), vec2(0.17, 0.22), 0.018);
-  float barrelB = lineMask(p, vec2(0.12, 0.14), vec2(0.36, 0.20), 0.016);
-  float wake = lineMask(p, vec2(-0.44, -0.26), vec2(0.22, -0.26), 0.014);
-  float alpha = clamp(hull + deck + turretA + turretB + bridge + barrelA + barrelB + wake * 0.45, 0.0, 1.0);
-  float gray = mix(0.70, 0.27, max(wake, boxMask(p, vec2(0.0, -0.18), vec2(0.34, 0.025), soft)));
-  gray = mix(gray, 0.39, max(turretA, max(turretB, bridge)));
-  gray = mix(gray, 0.51, max(barrelA, barrelB));
-  return vec4(vec3(gray), alpha);
-}
-
 void main() {
   // Untargetable nukes render translucent so players know SAMs can't hit them
   float alphaMul = abs(vFlags - FLAG_FLICKER_UNTARGETABLE) < 0.1
@@ -114,12 +55,6 @@ void main() {
   if (inSprite) {
     vec2 atlasUV = vec2((vAtlasCol + vCellUV.x) / float(ATLAS_COLS), vCellUV.y);
     texel = texture(uAtlas, atlasUV);
-  }
-
-  if (abs(vAtlasCol - 1.0) < 0.1) {
-    texel = cargoShipSprite(vCellUV);
-  } else if (abs(vAtlasCol - 2.0) < 0.1) {
-    texel = battleshipSprite(vCellUV);
   }
 
   // Outside the sprite: render the steady soft glow under the hydrogen bomb,

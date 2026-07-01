@@ -82,11 +82,6 @@ export class MobileNavBar extends LitElement {
               class="w-auto h-auto max-w-[220px] max-h-[4.5rem]"
             />
             <div
-              class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/70"
-            >
-              Hollis Version
-            </div>
-            <div
               id="game-version"
               class="l-header__highlightText text-center"
             ></div>
