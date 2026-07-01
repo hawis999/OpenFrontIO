@@ -27,6 +27,15 @@ interface Candidate {
   image: ImageData;
 }
 
+interface ConceptFamily {
+  label: string;
+  file: string;
+  source: string;
+  license: string;
+  note: string;
+  image: ImageData;
+}
+
 function image(width: number, height: number): ImageData {
   return { width, height, data: new Uint8Array(width * height * 4) };
 }
@@ -68,6 +77,26 @@ function pixelSprite(
   return img;
 }
 
+function hLine(
+  img: ImageData,
+  x0: number,
+  x1: number,
+  y: number,
+  rgba: readonly number[],
+) {
+  for (let x = x0; x <= x1; x++) setPixel(img, x, y, rgba);
+}
+
+function vLine(
+  img: ImageData,
+  x: number,
+  y0: number,
+  y1: number,
+  rgba: readonly number[],
+) {
+  for (let y = y0; y <= y1; y++) setPixel(img, x, y, rgba);
+}
+
 function overlay(base: ImageData, top: ImageData, ox: number, oy: number) {
   for (let y = 0; y < top.height; y++) {
     for (let x = 0; x < top.width; x++) {
@@ -81,6 +110,35 @@ function overlay(base: ImageData, top: ImageData, ox: number, oy: number) {
       ]);
     }
   }
+}
+
+function crop(
+  src: ImageData,
+  x: number,
+  y: number,
+  width: number,
+  height: number,
+) {
+  const out = image(width, height);
+  for (let py = 0; py < height; py++) {
+    for (let px = 0; px < width; px++) {
+      const sx = x + px;
+      const sy = y + py;
+      if (sx < 0 || sy < 0 || sx >= src.width || sy >= src.height) continue;
+      const offset = (sy * src.width + sx) * 4;
+      setPixel(out, px, py, [
+        src.data[offset],
+        src.data[offset + 1],
+        src.data[offset + 2],
+        src.data[offset + 3],
+      ]);
+    }
+  }
+  return out;
+}
+
+function frame(src: ImageData, frameWidth: number, frameIndex: number) {
+  return crop(src, frameWidth * frameIndex, 0, frameWidth, src.height);
 }
 
 function frameStrip(
@@ -185,6 +243,36 @@ function cargoShip(): ImageData {
   ]);
 }
 
+function cargoShipWide(): ImageData {
+  return pixelSprite(7, 7, [
+    [3, 0, BAND_LIGHT],
+    [2, 1, BAND_MID],
+    [3, 1, BAND_LIGHT],
+    [4, 1, BAND_MID],
+    [1, 2, BAND_DARK],
+    [2, 2, BAND_MID],
+    [3, 2, BAND_LIGHT],
+    [4, 2, BAND_MID],
+    [5, 2, BAND_DARK],
+    [0, 3, BAND_DARK],
+    [1, 3, BAND_MID],
+    [2, 3, BAND_LIGHT],
+    [3, 3, BAND_LIGHT],
+    [4, 3, BAND_LIGHT],
+    [5, 3, BAND_MID],
+    [6, 3, BAND_DARK],
+    [1, 4, BAND_DARK],
+    [2, 4, BAND_MID],
+    [3, 4, BAND_MID],
+    [4, 4, BAND_MID],
+    [5, 4, BAND_DARK],
+    [2, 5, BAND_DARK],
+    [3, 5, BAND_MID],
+    [4, 5, BAND_DARK],
+    [3, 6, BAND_DARK],
+  ]);
+}
+
 function destroyerShip(): ImageData {
   return pixelSprite(11, 11, [
     [5, 0, BAND_LIGHT],
@@ -248,6 +336,81 @@ function battleship(): ImageData {
   setPixel(img, 8, 7, BAND_DARK);
   setPixel(img, 5, 2, BAND_WHITE);
   setPixel(img, 5, 6, BAND_WHITE);
+  return img;
+}
+
+function natoToken(kind: "cargo" | "warship" | "port" | "city"): ImageData {
+  const img = image(16, 16);
+  rect(img, 3, 3, 10, 10, BAND_MID);
+  hLine(img, 3, 12, 3, BAND_DARK);
+  hLine(img, 3, 12, 12, BAND_DARK);
+  vLine(img, 3, 3, 12, BAND_DARK);
+  vLine(img, 12, 3, 12, BAND_DARK);
+  if (kind === "cargo") {
+    rect(img, 5, 8, 6, 2, BAND_LIGHT);
+    setPixel(img, 10, 7, BAND_LIGHT);
+    setPixel(img, 11, 8, BAND_DARK);
+  } else if (kind === "warship") {
+    hLine(img, 5, 10, 8, BAND_LIGHT);
+    setPixel(img, 11, 8, BAND_DARK);
+    hLine(img, 6, 10, 6, BAND_DARK);
+    setPixel(img, 8, 5, BAND_LIGHT);
+  } else if (kind === "port") {
+    rect(img, 5, 9, 7, 1, BAND_DARK);
+    vLine(img, 6, 5, 10, BAND_LIGHT);
+    hLine(img, 6, 11, 5, BAND_LIGHT);
+    vLine(img, 10, 5, 10, BAND_MID);
+  } else {
+    rect(img, 5, 8, 3, 4, BAND_LIGHT);
+    rect(img, 9, 6, 3, 6, BAND_DARK);
+  }
+  return img;
+}
+
+function oneBitShip(width: number, height: number, warship = false): ImageData {
+  const img = image(width, height);
+  const cx = Math.floor(width / 2);
+  for (let y = 0; y < height; y++) {
+    const half = Math.max(
+      0,
+      Math.floor((height - Math.abs(y - height / 2)) / 4),
+    );
+    hLine(img, cx - half, cx + half, y, y % 2 === 0 ? BAND_LIGHT : BAND_DARK);
+  }
+  if (warship) {
+    hLine(img, cx - 2, cx + 2, Math.floor(height / 2), BAND_WHITE);
+    vLine(img, cx, 2, height - 3, BAND_MID);
+  } else {
+    rect(img, cx - 1, Math.floor(height / 2) - 1, 3, 3, BAND_MID);
+  }
+  return img;
+}
+
+function radarSweepConcept(): ImageData {
+  const img = image(16 * 4, 16);
+  for (let frame = 0; frame < 4; frame++) {
+    const ox = frame * 16;
+    rect(img, ox + 7, 7, 2, 2, BAND_LIGHT);
+    hLine(img, ox + 4, ox + 11, 8, BAND_MID);
+    vLine(img, ox + 8, 4, 11, BAND_MID);
+    if (frame === 0) hLine(img, ox + 8, ox + 13, 5, BAND_WHITE);
+    if (frame === 1) hLine(img, ox + 8, ox + 13, 8, BAND_WHITE);
+    if (frame === 2) hLine(img, ox + 3, ox + 8, 11, BAND_WHITE);
+    if (frame === 3) hLine(img, ox + 3, ox + 8, 8, BAND_WHITE);
+  }
+  return img;
+}
+
+function signalTrailConcept(): ImageData {
+  const img = image(16 * 4, 16);
+  for (let frame = 0; frame < 4; frame++) {
+    const ox = frame * 16;
+    hLine(img, ox + 2, ox + 13, 8, BAND_DARK);
+    for (let i = 0; i < 4; i++) {
+      const x = 3 + ((frame + i * 3) % 10);
+      rect(img, ox + x, 7, 2, 1, i === 0 ? BAND_WHITE : BAND_LIGHT);
+    }
+  }
   return img;
 }
 
@@ -342,6 +505,108 @@ function unitAtlasPreview(candidates: Candidate[]): ImageData {
   overlay(atlas, trade, 13 * 1 + 4, 4);
   overlay(atlas, war, 13 * 2 + 1, 1);
   return atlas;
+}
+
+function composeFamily(
+  icons: ImageData[],
+  labels: string[],
+  cell = 56,
+): ImageData {
+  const img = image(cell * icons.length, cell);
+  icons.forEach((icon, index) => {
+    const ox = index * cell + Math.floor((cell - icon.width) / 2);
+    const oy = Math.floor((cell - icon.height) / 2);
+    overlay(img, icon, ox, oy);
+    // Tiny baseline marker so transparent whitespace is visible in the HTML.
+    hLine(
+      img,
+      index * cell + 10,
+      index * cell + cell - 10,
+      cell - 7,
+      BAND_DARK,
+    );
+    if (labels[index].includes("war")) {
+      rect(img, index * cell + cell - 15, cell - 10, 3, 3, BAND_LIGHT);
+    }
+  });
+  return img;
+}
+
+function buildConceptFamilies(): ConceptFamily[] {
+  const cityMax = frame(cityLevels(), 16, 4);
+  const portMax = frame(portLevels(), 16, 4);
+  const combatMid = frame(combatFxStrip(), 16, 1);
+  const radarMid = frame(radarSweepConcept(), 16, 1);
+  const roadMid = frame(signalTrailConcept(), 16, 1);
+  const tactical = composeFamily(
+    [
+      natoToken("cargo"),
+      natoToken("warship"),
+      natoToken("city"),
+      natoToken("port"),
+      radarMid,
+    ],
+    ["trade", "warship", "city", "port", "combat"],
+  );
+  const silhouette = composeFamily(
+    [cargoShipWide(), battleship(), cityMax, portMax, roadMid],
+    ["trade", "warship", "city", "port", "road"],
+  );
+  const oneBit = composeFamily(
+    [
+      oneBitShip(7, 7, false),
+      oneBitShip(11, 11, true),
+      oneBitShip(16, 16, false),
+      oneBitShip(16, 16, true),
+      combatMid,
+    ],
+    ["trade", "warship", "city", "port", "combat"],
+  );
+  const badge = composeFamily(
+    [
+      natoToken("cargo"),
+      battleship(),
+      natoToken("city"),
+      natoToken("port"),
+      railRoadTile(),
+    ],
+    ["trade", "warship", "city", "port", "rail"],
+  );
+
+  return [
+    {
+      label: "A. Tactical map symbols",
+      file: "concept-a-tactical-symbols.png",
+      source: "Custom, inspired by military map-marker language",
+      license: "Project-owned",
+      note: "Not literal ships; this optimizes hard for readability at distance.",
+      image: tactical,
+    },
+    {
+      label: "B. Modern naval silhouettes",
+      file: "concept-b-modern-naval-silhouettes.png",
+      source: "Kenney Pirate Pack and OpenGameArt Sea Warfare CC0 references",
+      license: "CC0 derivative/project-owned redraw",
+      note: "More literal ships, wider than the first pass, less tiny-diamond looking.",
+      image: silhouette,
+    },
+    {
+      label: "C. One-bit strategy counters",
+      file: "concept-c-one-bit-strategy-counters.png",
+      source: "Custom, informed by CC0 1-bit/pixel asset direction on itch.io",
+      license: "Project-owned",
+      note: "Crisp and severe; the least decorative and easiest to scan.",
+      image: oneBit,
+    },
+    {
+      label: "D. Badge/token UI icons",
+      file: "concept-d-badge-token-icons.png",
+      source: "Custom badge treatment with CC0 ship silhouette reference",
+      license: "Project-owned with CC0 reference",
+      note: "Symbols sit in consistent tokens; more board-game than pixel-art.",
+      image: badge,
+    },
+  ];
 }
 
 function buildCandidates(): Candidate[] {
@@ -444,6 +709,13 @@ async function writeCandidate(candidate: Candidate) {
   await writeFile(
     path.join(candidatesDir, candidate.file),
     encodePng(candidate.image),
+  );
+}
+
+async function writeConceptFamily(concept: ConceptFamily) {
+  await writeFile(
+    path.join(candidatesDir, concept.file),
+    encodePng(concept.image),
   );
 }
 
@@ -582,7 +854,84 @@ ${rows}
   await writeFile(path.join(outDir, "preview-contact-sheet.html"), html);
 }
 
-async function writeProvenance(candidates: Candidate[]) {
+async function writeConceptSheet(concepts: ConceptFamily[]) {
+  const rows = concepts
+    .map((concept) => {
+      const src = `candidates/${concept.file}`;
+      return `      <tr>
+        <td>
+          <strong>${htmlEscape(concept.label)}</strong>
+          <span>${htmlEscape(concept.note)}</span>
+          <small>${htmlEscape(concept.source)} - ${htmlEscape(concept.license)}</small>
+        </td>
+        <td class="zoom"><img src="${src}" alt="${htmlEscape(concept.label)} concept strip" style="width:560px"></td>
+      </tr>`;
+    })
+    .join("\n");
+
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hollis Visual Redo Concept Directions</title>
+    <style>
+      :root {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #101820;
+        background: #f5f7fa;
+      }
+      body { margin: 0; padding: 32px; }
+      header, table { width: min(1120px, 100%); margin: 0 auto 24px; }
+      h1 { margin: 0 0 8px; font-size: 28px; }
+      p, span, small { color: #53606b; }
+      table { border-collapse: collapse; background: white; border: 1px solid #d8e0e8; }
+      th, td { padding: 16px; border-bottom: 1px solid #e6ecf2; vertical-align: middle; }
+      th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #53606b; }
+      td:first-child { width: 36%; }
+      strong, span, small { display: block; }
+      span { margin-top: 5px; }
+      small { margin-top: 8px; color: #7b8794; }
+      img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #b7c2cc;
+        background:
+          linear-gradient(45deg, #eef2f6 25%, transparent 25%),
+          linear-gradient(-45deg, #eef2f6 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #eef2f6 75%),
+          linear-gradient(-45deg, transparent 75%, #eef2f6 75%);
+        background-color: #dfe6ee;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+        background-size: 16px 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Hollis Visual Redo Concept Directions</h1>
+      <p>Broader directions after rejecting the first preview. Pick a letter first; detailed sprites come after the vibe is right.</p>
+    </header>
+    <table>
+      <thead>
+        <tr><th>Direction</th><th>Concept strip</th></tr>
+      </thead>
+      <tbody>
+${rows}
+      </tbody>
+    </table>
+  </body>
+</html>
+`;
+
+  await writeFile(path.join(outDir, "concept-directions-v2.html"), html);
+}
+
+async function writeProvenance(
+  candidates: Candidate[],
+  concepts: ConceptFamily[],
+) {
   const lines = [
     "# Hollis Visual Redo Asset Provenance",
     "",
@@ -599,12 +948,27 @@ async function writeProvenance(candidates: Candidate[]) {
     "  - Author: Lowder2",
     "  - License: CC0",
     "  - Usage: destroyer and battleship silhouette reference normalized into OpenFront grayscale bands.",
+    "- Kenney Pixel Shmup",
+    "  - URL: https://kenney-assets.itch.io/pixel-shmup",
+    "  - License: CC0 1.0 Universal",
+    "  - Usage: reference for crisp low-resolution strategy/shmup readability.",
+    "- itch.io CC0 top-down/sprite asset listings",
+    "  - URL: https://itch.io/game-assets/assets-cc0/tag-top-down and https://itch.io/game-assets/assets-cc0/tag-sprites",
+    "  - License: varies by asset; only used as direction research here.",
+    "  - Usage: reference for one-bit and tiny-pixel concept directions.",
     "",
     "## Generated Candidates",
     "",
     ...candidates.map(
       (candidate) =>
         `- \`${candidate.file}\`: ${candidate.label}. ${candidate.note} Source: ${candidate.source}. License: ${candidate.license}.`,
+    ),
+    "",
+    "## Concept Direction Families",
+    "",
+    ...concepts.map(
+      (concept) =>
+        `- \`${concept.file}\`: ${concept.label}. ${concept.note} Source: ${concept.source}. License: ${concept.license}.`,
     ),
     "",
     "## Regeneration",
@@ -621,11 +985,14 @@ async function writeProvenance(candidates: Candidate[]) {
 async function main() {
   await mkdir(candidatesDir, { recursive: true });
   const candidates = buildCandidates();
+  const concepts = buildConceptFamilies();
   for (const candidate of candidates) await writeCandidate(candidate);
+  for (const concept of concepts) await writeConceptFamily(concept);
   await writeContactSheet(candidates);
-  await writeProvenance(candidates);
+  await writeConceptSheet(concepts);
+  await writeProvenance(candidates, concepts);
   console.log(
-    `Wrote ${candidates.length} candidates and HTML contact sheet to ${outDir}`,
+    `Wrote ${candidates.length} candidates, ${concepts.length} concept families, and HTML sheets to ${outDir}`,
   );
 }
 
