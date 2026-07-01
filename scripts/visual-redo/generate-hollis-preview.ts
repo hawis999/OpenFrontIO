@@ -339,6 +339,205 @@ function battleship(): ImageData {
   return img;
 }
 
+function warship13Detailed(): ImageData {
+  const img = image(13, 13);
+  // Long hull with a pointed bow, square stern, centerline superstructure,
+  // two turrets, and short barrels. Uses the full current 13px atlas cell.
+  hLine(img, 6, 6, 0, BAND_LIGHT);
+  hLine(img, 5, 7, 1, BAND_MID);
+  hLine(img, 4, 8, 2, BAND_DARK);
+  hLine(img, 3, 9, 3, BAND_MID);
+  hLine(img, 2, 10, 4, BAND_DARK);
+  hLine(img, 2, 10, 5, BAND_MID);
+  hLine(img, 1, 11, 6, BAND_DARK);
+  hLine(img, 2, 10, 7, BAND_MID);
+  hLine(img, 2, 10, 8, BAND_DARK);
+  hLine(img, 3, 9, 9, BAND_MID);
+  hLine(img, 4, 8, 10, BAND_DARK);
+  hLine(img, 5, 7, 11, BAND_MID);
+  hLine(img, 5, 7, 12, BAND_DARK);
+
+  rect(img, 5, 4, 3, 1, BAND_LIGHT);
+  rect(img, 4, 6, 5, 1, BAND_LIGHT);
+  rect(img, 5, 8, 3, 1, BAND_LIGHT);
+  vLine(img, 6, 3, 9, BAND_DARK);
+  setPixel(img, 6, 2, BAND_WHITE);
+  setPixel(img, 6, 6, BAND_WHITE);
+  setPixel(img, 6, 10, BAND_WHITE);
+  setPixel(img, 9, 4, BAND_LIGHT);
+  setPixel(img, 10, 4, BAND_LIGHT);
+  setPixel(img, 3, 8, BAND_LIGHT);
+  return img;
+}
+
+function warship13Stealth(): ImageData {
+  const img = image(13, 13);
+  // Cleaner silhouette: fewer interior pixels, stronger outline, more like a
+  // modern destroyer marker.
+  hLine(img, 6, 6, 0, BAND_LIGHT);
+  hLine(img, 5, 7, 1, BAND_LIGHT);
+  hLine(img, 4, 8, 2, BAND_MID);
+  hLine(img, 3, 9, 3, BAND_DARK);
+  hLine(img, 2, 10, 4, BAND_MID);
+  hLine(img, 2, 10, 5, BAND_MID);
+  hLine(img, 1, 11, 6, BAND_DARK);
+  hLine(img, 2, 10, 7, BAND_MID);
+  hLine(img, 2, 10, 8, BAND_MID);
+  hLine(img, 3, 9, 9, BAND_DARK);
+  hLine(img, 4, 8, 10, BAND_MID);
+  hLine(img, 5, 7, 11, BAND_DARK);
+  rect(img, 5, 4, 3, 1, BAND_LIGHT);
+  rect(img, 5, 6, 3, 1, BAND_DARK);
+  rect(img, 6, 7, 1, 2, BAND_LIGHT);
+  hLine(img, 8, 11, 5, BAND_LIGHT);
+  hLine(img, 2, 5, 8, BAND_LIGHT);
+  return img;
+}
+
+function warship17Detailed(): ImageData {
+  const img = image(17, 17);
+  // Requires a bigger atlas cell. This is the "detail is worth size" option.
+  hLine(img, 8, 8, 0, BAND_LIGHT);
+  hLine(img, 7, 9, 1, BAND_LIGHT);
+  hLine(img, 6, 10, 2, BAND_MID);
+  hLine(img, 5, 11, 3, BAND_DARK);
+  hLine(img, 4, 12, 4, BAND_MID);
+  hLine(img, 3, 13, 5, BAND_DARK);
+  hLine(img, 2, 14, 6, BAND_MID);
+  hLine(img, 2, 14, 7, BAND_MID);
+  hLine(img, 1, 15, 8, BAND_DARK);
+  hLine(img, 2, 14, 9, BAND_MID);
+  hLine(img, 2, 14, 10, BAND_MID);
+  hLine(img, 3, 13, 11, BAND_DARK);
+  hLine(img, 4, 12, 12, BAND_MID);
+  hLine(img, 5, 11, 13, BAND_DARK);
+  hLine(img, 6, 10, 14, BAND_MID);
+  hLine(img, 7, 9, 15, BAND_DARK);
+  hLine(img, 7, 9, 16, BAND_DARK);
+
+  rect(img, 7, 4, 3, 2, BAND_LIGHT);
+  rect(img, 6, 7, 5, 2, BAND_LIGHT);
+  rect(img, 7, 11, 3, 2, BAND_LIGHT);
+  vLine(img, 8, 3, 13, BAND_DARK);
+  hLine(img, 10, 14, 5, BAND_WHITE);
+  hLine(img, 10, 15, 8, BAND_LIGHT);
+  hLine(img, 2, 7, 10, BAND_LIGHT);
+  hLine(img, 3, 7, 13, BAND_WHITE);
+  setPixel(img, 8, 2, BAND_WHITE);
+  setPixel(img, 8, 8, BAND_WHITE);
+  setPixel(img, 8, 14, BAND_WHITE);
+  return img;
+}
+
+function warship21Silhouette(): ImageData {
+  const img = image(21, 21);
+  // Bigger silhouette concept: enough room for turrets, bridge, barrels,
+  // bow/stern taper, and deck line while staying monochrome/pixel readable.
+  for (let y = 0; y < 21; y++) {
+    const taper = y < 5 ? y : y > 15 ? 20 - y : 5;
+    const half = Math.max(0, taper);
+    hLine(img, 10 - half, 10 + half, y, y % 3 === 0 ? BAND_DARK : BAND_MID);
+  }
+  hLine(img, 10, 10, 0, BAND_LIGHT);
+  hLine(img, 8, 12, 2, BAND_LIGHT);
+  hLine(img, 5, 15, 8, BAND_DARK);
+  hLine(img, 5, 15, 12, BAND_DARK);
+  rect(img, 8, 5, 5, 2, BAND_LIGHT);
+  rect(img, 7, 9, 7, 3, BAND_LIGHT);
+  rect(img, 8, 14, 5, 2, BAND_LIGHT);
+  vLine(img, 10, 3, 17, BAND_DARK);
+  hLine(img, 13, 19, 6, BAND_WHITE);
+  hLine(img, 13, 19, 10, BAND_LIGHT);
+  hLine(img, 1, 8, 13, BAND_LIGHT);
+  hLine(img, 2, 8, 16, BAND_WHITE);
+  setPixel(img, 10, 3, BAND_WHITE);
+  setPixel(img, 10, 10, BAND_WHITE);
+  setPixel(img, 10, 17, BAND_WHITE);
+  return img;
+}
+
+function warshipSide13(): ImageData {
+  const img = image(13, 13);
+  // Side-profile symbol: more recognizable as a warship at tiny size than a
+  // strict top-down hull. Fits the current 13px unit atlas.
+  hLine(img, 1, 10, 8, BAND_DARK);
+  hLine(img, 2, 11, 9, BAND_DARK);
+  hLine(img, 3, 9, 10, BAND_MID);
+  setPixel(img, 11, 8, BAND_MID);
+  setPixel(img, 12, 9, BAND_DARK);
+  rect(img, 5, 5, 3, 3, BAND_MID);
+  rect(img, 6, 3, 2, 2, BAND_LIGHT);
+  hLine(img, 8, 11, 5, BAND_LIGHT);
+  hLine(img, 2, 5, 6, BAND_LIGHT);
+  setPixel(img, 4, 7, BAND_WHITE);
+  setPixel(img, 8, 7, BAND_WHITE);
+  hLine(img, 1, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function warshipSide17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 1, 14, 10, BAND_DARK);
+  hLine(img, 2, 15, 11, BAND_DARK);
+  hLine(img, 3, 13, 12, BAND_MID);
+  hLine(img, 5, 10, 13, BAND_MID);
+  setPixel(img, 15, 10, BAND_MID);
+  setPixel(img, 16, 11, BAND_DARK);
+  rect(img, 6, 6, 4, 4, BAND_MID);
+  rect(img, 7, 4, 3, 2, BAND_LIGHT);
+  rect(img, 10, 8, 2, 2, BAND_LIGHT);
+  hLine(img, 10, 15, 6, BAND_WHITE);
+  hLine(img, 2, 6, 8, BAND_LIGHT);
+  hLine(img, 4, 8, 5, BAND_LIGHT);
+  vLine(img, 8, 2, 5, BAND_DARK);
+  setPixel(img, 5, 9, BAND_WHITE);
+  setPixel(img, 10, 9, BAND_WHITE);
+  hLine(img, 1, 15, 14, BAND_LIGHT);
+  hLine(img, 3, 12, 15, BAND_DARK);
+  return img;
+}
+
+function warshipSide21(): ImageData {
+  const img = image(21, 21);
+  hLine(img, 1, 18, 12, BAND_DARK);
+  hLine(img, 2, 19, 13, BAND_DARK);
+  hLine(img, 3, 17, 14, BAND_MID);
+  hLine(img, 5, 14, 15, BAND_MID);
+  hLine(img, 8, 12, 16, BAND_DARK);
+  setPixel(img, 19, 12, BAND_MID);
+  setPixel(img, 20, 13, BAND_DARK);
+  rect(img, 7, 7, 5, 5, BAND_MID);
+  rect(img, 8, 4, 4, 3, BAND_LIGHT);
+  rect(img, 12, 9, 3, 3, BAND_LIGHT);
+  rect(img, 4, 9, 3, 2, BAND_LIGHT);
+  hLine(img, 12, 20, 7, BAND_WHITE);
+  hLine(img, 2, 8, 9, BAND_WHITE);
+  hLine(img, 5, 11, 6, BAND_LIGHT);
+  vLine(img, 10, 1, 6, BAND_DARK);
+  setPixel(img, 6, 11, BAND_WHITE);
+  setPixel(img, 12, 11, BAND_WHITE);
+  setPixel(img, 16, 12, BAND_LIGHT);
+  hLine(img, 1, 19, 17, BAND_LIGHT);
+  hLine(img, 3, 16, 18, BAND_DARK);
+  return img;
+}
+
+function warshipComparisonStrip(): ImageData {
+  return composeFamily(
+    [
+      warship13Detailed(),
+      warship13Stealth(),
+      warship17Detailed(),
+      warship21Silhouette(),
+      warshipSide13(),
+      warshipSide17(),
+      warshipSide21(),
+    ],
+    ["13 top", "13 clean", "17 top", "21 top", "13 side", "17 side", "21 side"],
+    64,
+  );
+}
+
 function natoToken(kind: "cargo" | "warship" | "port" | "city"): ImageData {
   const img = image(16, 16);
   rect(img, 3, 3, 10, 10, BAND_MID);
@@ -648,6 +847,81 @@ function buildCandidates(): Candidate[] {
       image: battleship(),
     },
     {
+      key: "warship-13-detail",
+      label: "Warship detailed candidate",
+      file: "warship-detailed-13.png",
+      source:
+        "Custom redraw using OpenGameArt Sea Warfare silhouette references",
+      license: "Project-owned with CC0 reference",
+      note: "13x13 full current atlas cell; most detail possible without renderer changes.",
+      image: warship13Detailed(),
+    },
+    {
+      key: "warship-13-silhouette",
+      label: "Warship silhouette candidate",
+      file: "warship-silhouette-13.png",
+      source: "Custom redraw using modern destroyer silhouette references",
+      license: "Project-owned with CC0 reference",
+      note: "13x13 full current atlas cell; cleaner and less noisy than the detailed version.",
+      image: warship13Stealth(),
+    },
+    {
+      key: "warship-17-detail",
+      label: "Warship detailed enlarged candidate",
+      file: "warship-detailed-17.png",
+      source:
+        "Custom redraw using OpenGameArt Sea Warfare silhouette references",
+      license: "Project-owned with CC0 reference",
+      note: "17x17; requires atlas/unit-size changes, but supports real turrets/barrels.",
+      image: warship17Detailed(),
+    },
+    {
+      key: "warship-21-silhouette",
+      label: "Warship large silhouette candidate",
+      file: "warship-silhouette-21.png",
+      source:
+        "Custom redraw using modern battleship/destroyer silhouette references",
+      license: "Project-owned with CC0 reference",
+      note: "21x21; requires renderer changes, but reads as an actual warship.",
+      image: warship21Silhouette(),
+    },
+    {
+      key: "warship-side-13",
+      label: "Warship side silhouette candidate",
+      file: "warship-side-silhouette-13.png",
+      source: "Custom side-profile warship silhouette using CC0 references",
+      license: "Project-owned with CC0 reference",
+      note: "13x13 current-compatible; less top-down, but much more readable as a warship.",
+      image: warshipSide13(),
+    },
+    {
+      key: "warship-side-17",
+      label: "Warship side detailed candidate",
+      file: "warship-side-detailed-17.png",
+      source: "Custom side-profile warship silhouette using CC0 references",
+      license: "Project-owned with CC0 reference",
+      note: "17x17 enlarged; bridge, guns, hull, and waterline have room to read.",
+      image: warshipSide17(),
+    },
+    {
+      key: "warship-side-21",
+      label: "Warship side large silhouette candidate",
+      file: "warship-side-silhouette-21.png",
+      source: "Custom side-profile warship silhouette using CC0 references",
+      license: "Project-owned with CC0 reference",
+      note: "21x21 enlarged; most recognizable silhouette, but requires unit-size work.",
+      image: warshipSide21(),
+    },
+    {
+      key: "warship-comparison",
+      label: "Warship size/detail comparison",
+      file: "warship-size-detail-comparison.png",
+      source: "Generated from the four warship-focused candidates",
+      license: "Project-owned with CC0 reference",
+      note: "Side-by-side: current-compatible 13px options versus enlarged options.",
+      image: warshipComparisonStrip(),
+    },
+    {
       key: "construction",
       label: "Construction progress marker",
       file: "construction-progress-16x4.png",
@@ -854,6 +1128,89 @@ ${rows}
   await writeFile(path.join(outDir, "preview-contact-sheet.html"), html);
 }
 
+async function writeWarshipSheet(candidates: Candidate[]) {
+  const warships = candidates.filter((candidate) =>
+    candidate.key.startsWith("warship"),
+  );
+  const rows = warships
+    .map((candidate) => {
+      const src = `candidates/${candidate.file}`;
+      const needsRenderer =
+        candidate.image.width > 13 || candidate.image.height > 13;
+      return `      <tr>
+        <td>
+          <strong>${htmlEscape(candidate.label)}</strong>
+          <span>${htmlEscape(candidate.note)}</span>
+          <small>${htmlEscape(candidate.source)} - ${htmlEscape(candidate.license)}</small>
+          <em>${needsRenderer ? "Requires atlas/unit-size renderer change." : "Fits current 13px unit atlas."}</em>
+        </td>
+        <td class="actual"><img src="${src}" alt="${htmlEscape(candidate.label)} actual size"></td>
+        <td class="zoom"><img src="${src}" alt="${htmlEscape(candidate.label)} zoomed" style="width:${zoomWidth(candidate)}px"></td>
+      </tr>`;
+    })
+    .join("\n");
+
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hollis Warship Detail Concepts</title>
+    <style>
+      :root {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #101820;
+        background: #f5f7fa;
+      }
+      body { margin: 0; padding: 32px; }
+      header, table { width: min(1120px, 100%); margin: 0 auto 24px; }
+      h1 { margin: 0 0 8px; font-size: 28px; }
+      p, span, small, em { color: #53606b; }
+      table { border-collapse: collapse; background: white; border: 1px solid #d8e0e8; }
+      th, td { padding: 16px; border-bottom: 1px solid #e6ecf2; vertical-align: middle; }
+      th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #53606b; }
+      td:first-child { width: 42%; }
+      strong, span, small, em { display: block; }
+      span { margin-top: 5px; }
+      small, em { margin-top: 8px; }
+      em { font-style: normal; color: #8a5b11; font-weight: 700; }
+      img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #b7c2cc;
+        background:
+          linear-gradient(45deg, #eef2f6 25%, transparent 25%),
+          linear-gradient(-45deg, #eef2f6 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #eef2f6 75%),
+          linear-gradient(-45deg, transparent 75%, #eef2f6 75%);
+        background-color: #dfe6ee;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+        background-size: 16px 16px;
+      }
+      .actual img { width: auto; height: auto; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Hollis Warship Detail Concepts</h1>
+      <p>Warship-only sheet after rejecting the broad concept directions. The first two new options fit the current 13px atlas; the larger ones show what becomes possible if we accept a renderer-size change.</p>
+    </header>
+    <table>
+      <thead>
+        <tr><th>Candidate</th><th>Actual size</th><th>Zoomed inspection</th></tr>
+      </thead>
+      <tbody>
+${rows}
+      </tbody>
+    </table>
+  </body>
+</html>
+`;
+
+  await writeFile(path.join(outDir, "warship-detail-concepts.html"), html);
+}
+
 async function writeConceptSheet(concepts: ConceptFamily[]) {
   const rows = concepts
     .map((concept) => {
@@ -989,6 +1346,7 @@ async function main() {
   for (const candidate of candidates) await writeCandidate(candidate);
   for (const concept of concepts) await writeConceptFamily(concept);
   await writeContactSheet(candidates);
+  await writeWarshipSheet(candidates);
   await writeConceptSheet(concepts);
   await writeProvenance(candidates, concepts);
   console.log(
