@@ -95,6 +95,7 @@ export class RailroadPass {
 
   private uCamera: WebGLUniformLocation;
   private uMapSize: WebGLUniformLocation;
+  private uTime: WebGLUniformLocation;
   private uZoom: WebGLUniformLocation;
   private uRailDetailZoom: WebGLUniformLocation;
   private uRailAlpha: WebGLUniformLocation;
@@ -146,6 +147,7 @@ export class RailroadPass {
 
     this.uCamera = gl.getUniformLocation(this.program, "uCamera")!;
     this.uMapSize = gl.getUniformLocation(this.program, "uMapSize")!;
+    this.uTime = gl.getUniformLocation(this.program, "uTime")!;
     this.uZoom = gl.getUniformLocation(this.program, "uZoom")!;
     this.uRailDetailZoom = gl.getUniformLocation(
       this.program,
@@ -344,6 +346,7 @@ export class RailroadPass {
     gl.useProgram(this.program);
     gl.uniformMatrix3fv(this.uCamera, false, cameraMatrix);
     gl.uniform2f(this.uMapSize, this.mapW, this.mapH);
+    gl.uniform1f(this.uTime, performance.now() / 1000);
     gl.uniform1f(this.uZoom, zoom);
     gl.uniform1f(this.uRailDetailZoom, rs.railDetailZoom);
     gl.uniform1f(this.uRailAlpha, rs.railAlpha);

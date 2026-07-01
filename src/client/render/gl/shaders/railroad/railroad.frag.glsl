@@ -9,6 +9,7 @@ uniform sampler2D  uPalette;         // RGBA32F — player colors
 uniform usampler2D uTerrainTex;      // R8UI — terrain bytes (bit 7 = isLand)
 
 uniform vec2 uMapSize;
+uniform float uTime;
 uniform float uZoom;
 uniform float uRailDetailZoom;
 uniform float uRailAlpha;
@@ -108,6 +109,24 @@ float railLineCoverage(uint rt, vec2 p) {
   return 1.0 - smoothstep(halfW - aa, halfW + aa, railLineDist(rt, p));
 }
 
+float railSleeperMask(uint rt, vec2 p) {
+  if (rt == 0u || rt > 6u) return 0.0;
+  float along = (rt == 1u) ? p.y : (rt == 2u ? p.x : (p.x + p.y) * 0.7071);
+  float across = railLineDist(rt, p);
+  float sleeper = smoothstep(0.82, 0.94, sin(along * 30.0) * 0.5 + 0.5);
+  float nearTrack = 1.0 - smoothstep(0.22, 0.34, across);
+  return sleeper * nearTrack;
+}
+
+float railSignalMask(uint rt, vec2 p) {
+  if (rt == 0u || rt > 6u) return 0.0;
+  float along = (rt == 1u) ? p.y : (rt == 2u ? p.x : (p.x + p.y) * 0.7071);
+  float wave = sin((along + uTime * 0.75) * 18.0);
+  float pulse = smoothstep(0.90, 1.0, wave * 0.5 + 0.5);
+  float core = 1.0 - smoothstep(0.04, 0.12, railLineDist(rt, p));
+  return pulse * core;
+}
+
 void main() {
   ivec2 tc = ivec2(floor(vWorldPos));
 
@@ -174,6 +193,10 @@ void main() {
         : texture(uPalette, vec2((float(owner) + 0.5) / float(PALETTE_SIZE), 0.75)).rgb);
     // Overlapping railroad highlight — green tint
     if (highlighted) railColor = vec3(0.2, 0.85, 0.3);
+    float sleeper = railSleeperMask(railType, f) * realCov;
+    float signal = railSignalMask(railType, f) * realCov;
+    railColor = mix(railColor, vec3(0.06, 0.045, 0.035), sleeper * 0.65);
+    railColor = mix(railColor, vec3(0.92, 0.93, 0.88), signal * 0.45);
     if (hitBridge) {
       fragColor = vec4(mix(bridgeColor, railColor, railAlpha), uRailFade);
     } else {

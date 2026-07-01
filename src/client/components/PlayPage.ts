@@ -50,13 +50,17 @@ export class PlayPage extends LitElement {
             </button>
 
             <div
-              class="col-start-2 flex items-center justify-center text-malibu-blue min-w-0"
+              class="col-start-2 flex flex-col items-center justify-center text-malibu-blue min-w-0 leading-none"
             >
               <img
                 src=${assetUrl("images/OpenFrontLogo.svg")}
                 alt="OpenFront"
-                class="h-full w-auto"
+                class="h-9 w-auto"
               />
+              <span
+                class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/80"
+                >Hollis Version</span
+              >
             </div>
 
             <div

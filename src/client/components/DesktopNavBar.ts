@@ -61,6 +61,11 @@ export class DesktopNavBar extends LitElement {
             />
           </div>
           <div
+            class="text-[10px] font-bold uppercase tracking-[0.22em] text-white/70 mt-1"
+          >
+            Hollis Version
+          </div>
+          <div
             id="game-version"
             class="l-header__highlightText text-center"
           ></div>
