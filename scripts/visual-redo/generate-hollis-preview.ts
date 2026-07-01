@@ -593,6 +593,130 @@ function warshipSideCarrier17(): ImageData {
   return img;
 }
 
+function warshipSideCarrier21(): ImageData {
+  const img = image(21, 21);
+  hLine(img, 0, 18, 12, BAND_DARK);
+  hLine(img, 1, 20, 13, BAND_DARK);
+  hLine(img, 4, 17, 14, BAND_MID);
+  hLine(img, 2, 18, 8, BAND_MID);
+  hLine(img, 3, 19, 9, BAND_LIGHT);
+  hLine(img, 4, 17, 10, BAND_MID);
+  rect(img, 14, 4, 4, 4, BAND_LIGHT);
+  rect(img, 15, 2, 2, 2, BAND_MID);
+  hLine(img, 2, 19, 15, BAND_LIGHT);
+  hLine(img, 5, 15, 16, BAND_DARK);
+  setPixel(img, 12, 7, BAND_WHITE);
+  setPixel(img, 16, 3, BAND_WHITE);
+  return img;
+}
+
+function cargoSide13(): ImageData {
+  const img = image(13, 13);
+  hLine(img, 0, 10, 8, BAND_DARK);
+  hLine(img, 1, 12, 9, BAND_DARK);
+  hLine(img, 3, 10, 10, BAND_MID);
+  rect(img, 3, 5, 2, 3, BAND_LIGHT);
+  rect(img, 5, 5, 2, 3, BAND_MID);
+  rect(img, 7, 5, 2, 3, BAND_LIGHT);
+  rect(img, 9, 6, 2, 2, BAND_MID);
+  rect(img, 1, 6, 2, 2, BAND_MID);
+  hLine(img, 1, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function cargoSideStacked13(): ImageData {
+  const img = image(13, 13);
+  hLine(img, 0, 10, 8, BAND_DARK);
+  hLine(img, 1, 12, 9, BAND_DARK);
+  hLine(img, 3, 10, 10, BAND_MID);
+  rect(img, 3, 4, 2, 2, BAND_LIGHT);
+  rect(img, 5, 4, 2, 2, BAND_MID);
+  rect(img, 7, 4, 2, 2, BAND_LIGHT);
+  rect(img, 4, 6, 2, 2, BAND_MID);
+  rect(img, 6, 6, 2, 2, BAND_LIGHT);
+  rect(img, 8, 6, 2, 2, BAND_MID);
+  rect(img, 10, 5, 1, 3, BAND_LIGHT);
+  hLine(img, 1, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function cargoSide17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 0, 14, 10, BAND_DARK);
+  hLine(img, 1, 16, 11, BAND_DARK);
+  hLine(img, 4, 13, 12, BAND_MID);
+  rect(img, 3, 6, 3, 4, BAND_LIGHT);
+  rect(img, 6, 6, 3, 4, BAND_MID);
+  rect(img, 9, 6, 3, 4, BAND_LIGHT);
+  rect(img, 12, 7, 3, 3, BAND_MID);
+  rect(img, 1, 8, 2, 2, BAND_MID);
+  hLine(img, 2, 15, 13, BAND_LIGHT);
+  hLine(img, 4, 12, 14, BAND_DARK);
+  return img;
+}
+
+function cargoSideStacked17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 0, 14, 10, BAND_DARK);
+  hLine(img, 1, 16, 11, BAND_DARK);
+  hLine(img, 4, 13, 12, BAND_MID);
+  for (let row = 0; row < 2; row++) {
+    for (let col = 0; col < 4; col++) {
+      const color = (row + col) % 2 === 0 ? BAND_LIGHT : BAND_MID;
+      rect(img, 4 + col * 2, 5 + row * 2, 2, 2, color);
+    }
+  }
+  rect(img, 12, 6, 3, 4, BAND_LIGHT);
+  rect(img, 1, 8, 2, 2, BAND_MID);
+  hLine(img, 2, 15, 13, BAND_LIGHT);
+  hLine(img, 4, 12, 14, BAND_DARK);
+  return img;
+}
+
+function cargoSide21(): ImageData {
+  const img = image(21, 21);
+  hLine(img, 0, 18, 12, BAND_DARK);
+  hLine(img, 1, 20, 13, BAND_DARK);
+  hLine(img, 4, 17, 14, BAND_MID);
+  for (let row = 0; row < 2; row++) {
+    for (let col = 0; col < 5; col++) {
+      const color = (row + col) % 2 === 0 ? BAND_LIGHT : BAND_MID;
+      rect(img, 4 + col * 2, 6 + row * 2, 2, 2, color);
+    }
+  }
+  rect(img, 14, 7, 4, 4, BAND_LIGHT);
+  rect(img, 1, 10, 3, 2, BAND_MID);
+  hLine(img, 2, 19, 15, BAND_LIGHT);
+  hLine(img, 5, 15, 16, BAND_DARK);
+  return img;
+}
+
+function carrierCargoPairStrip(): ImageData {
+  return composeFamily(
+    [
+      warshipSideCarrier13(),
+      cargoSide13(),
+      cargoSideStacked13(),
+      warshipSideCarrier17(),
+      cargoSide17(),
+      cargoSideStacked17(),
+      warshipSideCarrier21(),
+      cargoSide21(),
+    ],
+    [
+      "carrier 13",
+      "cargo 13",
+      "stacked 13",
+      "carrier 17",
+      "cargo 17",
+      "stacked 17",
+      "carrier 21",
+      "cargo 21",
+    ],
+    64,
+  );
+}
+
 function warshipSideCruiser17(): ImageData {
   const img = image(17, 17);
   hLine(img, 1, 14, 10, BAND_DARK);
@@ -979,6 +1103,56 @@ function buildCandidates(): Candidate[] {
       image: cargoShip(),
     },
     {
+      key: "trade-side-cargo-13",
+      label: "Trade ship side cargo candidate",
+      file: "trade-side-cargo-13.png",
+      source:
+        "Custom side-profile cargo ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "13x13 current-compatible; side-profile cargo hull with container blocks.",
+      image: cargoSide13(),
+    },
+    {
+      key: "trade-side-stacked-cargo-13",
+      label: "Trade ship stacked cargo candidate",
+      file: "trade-side-stacked-cargo-13.png",
+      source:
+        "Custom side-profile container ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "13x13 current-compatible; more container detail while still tiny.",
+      image: cargoSideStacked13(),
+    },
+    {
+      key: "trade-side-cargo-17",
+      label: "Trade ship side cargo detailed candidate",
+      file: "trade-side-cargo-17.png",
+      source:
+        "Custom side-profile cargo ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "17x17 enlarged; hull, stern cabin, and container sections read more clearly.",
+      image: cargoSide17(),
+    },
+    {
+      key: "trade-side-stacked-cargo-17",
+      label: "Trade ship stacked cargo detailed candidate",
+      file: "trade-side-stacked-cargo-17.png",
+      source:
+        "Custom side-profile container ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "17x17 enlarged; stronger container-stack silhouette for trade ships.",
+      image: cargoSideStacked17(),
+    },
+    {
+      key: "trade-side-cargo-21",
+      label: "Trade ship side cargo large candidate",
+      file: "trade-side-cargo-21.png",
+      source:
+        "Custom side-profile cargo ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "21x21 enlarged; clearest cargo ship profile, requires unit-size work.",
+      image: cargoSide21(),
+    },
+    {
       key: "warship-destroyer",
       label: "Warship destroyer candidate",
       file: "warship-destroyer-11.png",
@@ -1141,6 +1315,25 @@ function buildCandidates(): Candidate[] {
       license: "Project-owned with public-domain/CC0 reference",
       note: "17x17 enlarged; flat-top carrier profile with island superstructure.",
       image: warshipSideCarrier17(),
+    },
+    {
+      key: "warship-side-carrier-21",
+      label: "Warship side carrier large candidate",
+      file: "warship-side-carrier-21.png",
+      source:
+        "Custom side-profile carrier silhouette using public-domain naval references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "21x21 enlarged; clearest aircraft carrier profile with deck and island.",
+      image: warshipSideCarrier21(),
+    },
+    {
+      key: "carrier-cargo-pairing",
+      label: "Aircraft carrier and cargo ship pairing",
+      file: "carrier-cargo-side-profile-pairing.png",
+      source: "Generated from carrier and cargo side-profile candidates",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "Side-by-side pairing sheet for warship carrier and trade cargo ship candidates.",
+      image: carrierCargoPairStrip(),
     },
     {
       key: "warship-side-profile-variants",
@@ -1450,6 +1643,95 @@ ${rows}
   await writeFile(path.join(outDir, "warship-detail-concepts.html"), html);
 }
 
+async function writeCarrierCargoSheet(candidates: Candidate[]) {
+  const pairing = candidates.filter(
+    (candidate) =>
+      candidate.key.startsWith("warship-side-carrier") ||
+      candidate.key.startsWith("trade-side") ||
+      candidate.key === "carrier-cargo-pairing",
+  );
+  const rows = pairing
+    .map((candidate) => {
+      const src = `candidates/${candidate.file}`;
+      const needsRenderer =
+        candidate.image.width > 13 || candidate.image.height > 13;
+      return `      <tr>
+        <td>
+          <strong>${htmlEscape(candidate.label)}</strong>
+          <span>${htmlEscape(candidate.note)}</span>
+          <small>${htmlEscape(candidate.source)} - ${htmlEscape(candidate.license)}</small>
+          <em>${needsRenderer ? "Requires atlas/unit-size renderer change." : "Fits current 13px unit atlas."}</em>
+        </td>
+        <td class="actual"><img src="${src}" alt="${htmlEscape(candidate.label)} actual size"></td>
+        <td class="zoom"><img src="${src}" alt="${htmlEscape(candidate.label)} zoomed" style="width:${zoomWidth(candidate)}px"></td>
+      </tr>`;
+    })
+    .join("\n");
+
+  const html = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Carrier and Cargo Side-Profile Concepts</title>
+    <style>
+      :root {
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #101820;
+        background: #f5f7fa;
+      }
+      body { margin: 0; padding: 32px; }
+      header, table { width: min(1120px, 100%); margin: 0 auto 24px; }
+      h1 { margin: 0 0 8px; font-size: 28px; }
+      p, span, small, em { color: #53606b; }
+      table { border-collapse: collapse; background: white; border: 1px solid #d8e0e8; }
+      th, td { padding: 16px; border-bottom: 1px solid #e6ecf2; vertical-align: middle; }
+      th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #53606b; }
+      td:first-child { width: 42%; }
+      strong, span, small, em { display: block; }
+      span { margin-top: 5px; }
+      small, em { margin-top: 8px; }
+      em { font-style: normal; color: #8a5b11; font-weight: 700; }
+      img {
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #b7c2cc;
+        background:
+          linear-gradient(45deg, #eef2f6 25%, transparent 25%),
+          linear-gradient(-45deg, #eef2f6 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #eef2f6 75%),
+          linear-gradient(-45deg, transparent 75%, #eef2f6 75%);
+        background-color: #dfe6ee;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+        background-size: 16px 16px;
+      }
+      .actual img { width: auto; height: auto; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Carrier and Cargo Side-Profile Concepts</h1>
+      <p>Focused preview for using an aircraft carrier as the warship and a cargo/container ship as the trade ship. The 13px versions fit the current atlas; 17px and 21px versions show the detail gained by increasing unit sprite size.</p>
+    </header>
+    <table>
+      <thead>
+        <tr><th>Candidate</th><th>Actual size</th><th>Zoomed inspection</th></tr>
+      </thead>
+      <tbody>
+${rows}
+      </tbody>
+    </table>
+  </body>
+</html>
+`;
+
+  await writeFile(
+    path.join(outDir, "carrier-cargo-side-profile-concepts.html"),
+    html,
+  );
+}
+
 async function writeConceptSheet(concepts: ConceptFamily[]) {
   const rows = concepts
     .map((concept) => {
@@ -1552,6 +1834,14 @@ async function writeProvenance(
     "  - URL: https://freesvg.org/a-warship",
     "  - License: Public Domain",
     "  - Usage: historical warship side-profile reference.",
+    "- FreeSVG/OpenClipart container ship and cargo vessel",
+    "  - URLs: https://freesvg.org/container-ship-vector-illustration and https://freesvg.org/cargo-vessel",
+    "  - License: Public Domain / CC0 per source pages.",
+    "  - Usage: side-profile cargo/container ship references for trade ship candidates.",
+    "- PublicDomainVectors cargo ship clipart",
+    "  - URL: https://publicdomainvectors.org/en/cargo-ship-clipart",
+    "  - License: Public domain/free of copyright per source page.",
+    "  - Usage: cargo ship silhouette and container layout references.",
     "- OpenGameArt Battleships",
     "  - URL: https://opengameart.org/content/battleships",
     "  - License: CC0",
@@ -1598,6 +1888,7 @@ async function main() {
   for (const concept of concepts) await writeConceptFamily(concept);
   await writeContactSheet(candidates);
   await writeWarshipSheet(candidates);
+  await writeCarrierCargoSheet(candidates);
   await writeConceptSheet(concepts);
   await writeProvenance(candidates, concepts);
   console.log(

@@ -21,6 +21,14 @@ This directory is preview-only. These files are candidate assets for review befo
   - URL: https://freesvg.org/a-warship
   - License: Public Domain
   - Usage: historical warship side-profile reference.
+- FreeSVG/OpenClipart container ship and cargo vessel
+  - URLs: https://freesvg.org/container-ship-vector-illustration and https://freesvg.org/cargo-vessel
+  - License: Public Domain / CC0 per source pages.
+  - Usage: side-profile cargo/container ship references for trade ship candidates.
+- PublicDomainVectors cargo ship clipart
+  - URL: https://publicdomainvectors.org/en/cargo-ship-clipart
+  - License: Public domain/free of copyright per source page.
+  - Usage: cargo ship silhouette and container layout references.
 - OpenGameArt Battleships
   - URL: https://opengameart.org/content/battleships
   - License: CC0
@@ -38,6 +46,11 @@ This directory is preview-only. These files are candidate assets for review befo
 
 - `transport-ship-clean-5.png`: Transport ship candidate. 5x5 actual cell; broader landing-craft silhouette. Source: Kenney Pirate Pack, simplified by hand for OpenFront scale. License: CC0.
 - `trade-ship-cargo-5.png`: Trade ship cargo candidate. 5x5 actual cell; light deck/container pixels carry the cargo read. Source: Kenney Pirate Pack hull language, simplified by hand. License: CC0.
+- `trade-side-cargo-13.png`: Trade ship side cargo candidate. 13x13 current-compatible; side-profile cargo hull with container blocks. Source: Custom side-profile cargo ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
+- `trade-side-stacked-cargo-13.png`: Trade ship stacked cargo candidate. 13x13 current-compatible; more container detail while still tiny. Source: Custom side-profile container ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
+- `trade-side-cargo-17.png`: Trade ship side cargo detailed candidate. 17x17 enlarged; hull, stern cabin, and container sections read more clearly. Source: Custom side-profile cargo ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
+- `trade-side-stacked-cargo-17.png`: Trade ship stacked cargo detailed candidate. 17x17 enlarged; stronger container-stack silhouette for trade ships. Source: Custom side-profile container ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
+- `trade-side-cargo-21.png`: Trade ship side cargo large candidate. 21x21 enlarged; clearest cargo ship profile, requires unit-size work. Source: Custom side-profile cargo ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
 - `warship-destroyer-11.png`: Warship destroyer candidate. 11x11 actual cell; sharper bow and centerline gun hints. Source: OpenGameArt Sea Warfare Destroyer silhouette, normalized. License: CC0.
 - `warship-battleship-11.png`: Warship battleship candidate. 11x11 alternative; heavier silhouette than the destroyer. Source: OpenGameArt Sea Warfare Battleship silhouette, normalized. License: CC0.
 - `warship-detailed-13.png`: Warship detailed candidate. 13x13 full current atlas cell; most detail possible without renderer changes. Source: Custom redraw using OpenGameArt Sea Warfare silhouette references. License: Project-owned with CC0 reference.
@@ -55,6 +68,8 @@ This directory is preview-only. These files are candidate assets for review befo
 - `warship-side-heavy-gun-17.png`: Warship side heavy gun detailed candidate. 17x17 enlarged; strongest classic battleship/gunship profile. Source: Custom side-profile battleship silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
 - `warship-side-stealth-17.png`: Warship side stealth detailed candidate. 17x17 enlarged; angular stealth destroyer profile with clean deck line. Source: Custom side-profile modern destroyer silhouette using CC0 references. License: Project-owned with CC0 reference.
 - `warship-side-carrier-17.png`: Warship side carrier detailed candidate. 17x17 enlarged; flat-top carrier profile with island superstructure. Source: Custom side-profile carrier silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `warship-side-carrier-21.png`: Warship side carrier large candidate. 21x21 enlarged; clearest aircraft carrier profile with deck and island. Source: Custom side-profile carrier silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `carrier-cargo-side-profile-pairing.png`: Aircraft carrier and cargo ship pairing. Side-by-side pairing sheet for warship carrier and trade cargo ship candidates. Source: Generated from carrier and cargo side-profile candidates. License: Project-owned with public-domain/CC0 reference.
 - `warship-side-profile-variants.png`: Warship side-profile variants. Side-by-side sheet of current-compatible 13px and enlarged 17px silhouettes. Source: Generated from the side-profile warship variant set. License: Project-owned with public-domain/CC0 reference.
 - `warship-size-detail-comparison.png`: Warship size/detail comparison. Side-by-side: current-compatible 13px options versus enlarged options. Source: Generated from the four warship-focused candidates. License: Project-owned with CC0 reference.
 - `construction-progress-16x4.png`: Construction progress marker. Four 16x16 frames; intentionally no people and no noisy movement. Source: Custom minimal scaffold/crane marker. License: Project-owned.
