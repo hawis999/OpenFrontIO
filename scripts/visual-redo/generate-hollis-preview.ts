@@ -522,6 +522,156 @@ function warshipSide21(): ImageData {
   return img;
 }
 
+function warshipSideCarrier13(): ImageData {
+  const img = image(13, 13);
+  hLine(img, 0, 11, 8, BAND_DARK);
+  hLine(img, 1, 12, 9, BAND_DARK);
+  hLine(img, 3, 10, 10, BAND_MID);
+  hLine(img, 2, 10, 6, BAND_MID);
+  hLine(img, 3, 11, 7, BAND_LIGHT);
+  rect(img, 8, 4, 3, 2, BAND_LIGHT);
+  rect(img, 9, 3, 1, 1, BAND_WHITE);
+  hLine(img, 1, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function warshipSideCruiser13(): ImageData {
+  const img = image(13, 13);
+  hLine(img, 1, 10, 8, BAND_DARK);
+  hLine(img, 2, 11, 9, BAND_DARK);
+  hLine(img, 3, 9, 10, BAND_MID);
+  setPixel(img, 12, 9, BAND_DARK);
+  rect(img, 4, 6, 2, 2, BAND_MID);
+  rect(img, 7, 5, 3, 3, BAND_LIGHT);
+  hLine(img, 9, 12, 5, BAND_WHITE);
+  hLine(img, 2, 5, 6, BAND_LIGHT);
+  setPixel(img, 6, 5, BAND_DARK);
+  hLine(img, 2, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function warshipSideDreadnought13(): ImageData {
+  const img = image(13, 13);
+  hLine(img, 0, 10, 8, BAND_DARK);
+  hLine(img, 1, 11, 9, BAND_DARK);
+  hLine(img, 3, 9, 10, BAND_MID);
+  rect(img, 4, 6, 5, 2, BAND_MID);
+  rect(img, 5, 4, 3, 2, BAND_LIGHT);
+  hLine(img, 8, 12, 5, BAND_WHITE);
+  hLine(img, 1, 4, 6, BAND_WHITE);
+  rect(img, 9, 7, 2, 1, BAND_LIGHT);
+  rect(img, 2, 7, 2, 1, BAND_LIGHT);
+  hLine(img, 1, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function warshipSideStealth13(): ImageData {
+  const img = image(13, 13);
+  hLine(img, 1, 11, 8, BAND_DARK);
+  hLine(img, 2, 12, 9, BAND_DARK);
+  hLine(img, 4, 10, 10, BAND_MID);
+  hLine(img, 3, 8, 7, BAND_MID);
+  hLine(img, 5, 10, 6, BAND_LIGHT);
+  setPixel(img, 9, 5, BAND_LIGHT);
+  setPixel(img, 10, 5, BAND_WHITE);
+  hLine(img, 8, 12, 7, BAND_WHITE);
+  hLine(img, 1, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function warshipSideCarrier17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 0, 15, 10, BAND_DARK);
+  hLine(img, 1, 16, 11, BAND_DARK);
+  hLine(img, 4, 13, 12, BAND_MID);
+  hLine(img, 2, 14, 7, BAND_MID);
+  hLine(img, 3, 15, 8, BAND_LIGHT);
+  rect(img, 11, 4, 4, 3, BAND_LIGHT);
+  rect(img, 12, 2, 2, 2, BAND_MID);
+  hLine(img, 2, 15, 13, BAND_LIGHT);
+  hLine(img, 4, 11, 14, BAND_DARK);
+  return img;
+}
+
+function warshipSideCruiser17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 1, 14, 10, BAND_DARK);
+  hLine(img, 2, 15, 11, BAND_DARK);
+  hLine(img, 4, 13, 12, BAND_MID);
+  rect(img, 5, 7, 3, 3, BAND_MID);
+  rect(img, 9, 5, 4, 4, BAND_LIGHT);
+  rect(img, 7, 4, 2, 2, BAND_MID);
+  hLine(img, 12, 16, 5, BAND_WHITE);
+  hLine(img, 2, 7, 7, BAND_LIGHT);
+  hLine(img, 4, 10, 6, BAND_LIGHT);
+  vLine(img, 10, 2, 5, BAND_DARK);
+  hLine(img, 2, 15, 13, BAND_LIGHT);
+  hLine(img, 4, 12, 14, BAND_DARK);
+  return img;
+}
+
+function warshipSideDreadnought17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 0, 14, 10, BAND_DARK);
+  hLine(img, 1, 15, 11, BAND_DARK);
+  hLine(img, 3, 13, 12, BAND_MID);
+  hLine(img, 5, 11, 13, BAND_MID);
+  rect(img, 5, 7, 7, 3, BAND_MID);
+  rect(img, 7, 4, 4, 3, BAND_LIGHT);
+  hLine(img, 11, 16, 5, BAND_WHITE);
+  hLine(img, 1, 6, 7, BAND_WHITE);
+  hLine(img, 11, 15, 9, BAND_LIGHT);
+  hLine(img, 1, 5, 9, BAND_LIGHT);
+  vLine(img, 9, 2, 5, BAND_DARK);
+  hLine(img, 2, 15, 14, BAND_LIGHT);
+  return img;
+}
+
+function warshipSideStealth17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 1, 15, 10, BAND_DARK);
+  hLine(img, 2, 16, 11, BAND_DARK);
+  hLine(img, 4, 13, 12, BAND_MID);
+  hLine(img, 3, 10, 8, BAND_MID);
+  hLine(img, 6, 14, 7, BAND_LIGHT);
+  hLine(img, 8, 13, 5, BAND_MID);
+  setPixel(img, 12, 4, BAND_LIGHT);
+  hLine(img, 11, 16, 8, BAND_WHITE);
+  hLine(img, 2, 15, 13, BAND_LIGHT);
+  hLine(img, 5, 12, 14, BAND_DARK);
+  return img;
+}
+
+function warshipSideProfileVariantsStrip(): ImageData {
+  return composeFamily(
+    [
+      warshipSide13(),
+      warshipSideCruiser13(),
+      warshipSideDreadnought13(),
+      warshipSideStealth13(),
+      warshipSideCarrier13(),
+      warshipSide17(),
+      warshipSideCruiser17(),
+      warshipSideDreadnought17(),
+      warshipSideStealth17(),
+      warshipSideCarrier17(),
+    ],
+    [
+      "13 ship",
+      "13 cruiser",
+      "13 guns",
+      "13 stealth",
+      "13 carrier",
+      "17 ship",
+      "17 cruiser",
+      "17 guns",
+      "17 stealth",
+      "17 carrier",
+    ],
+    58,
+  );
+}
+
 function warshipComparisonStrip(): ImageData {
   return composeFamily(
     [
@@ -911,6 +1061,95 @@ function buildCandidates(): Candidate[] {
       license: "Project-owned with CC0 reference",
       note: "21x21 enlarged; most recognizable silhouette, but requires unit-size work.",
       image: warshipSide21(),
+    },
+    {
+      key: "warship-side-cruiser-13",
+      label: "Warship side cruiser candidate",
+      file: "warship-side-cruiser-13.png",
+      source:
+        "Custom side-profile cruiser silhouette using public-domain naval references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "13x13 current-compatible; bridge and forward gun are emphasized.",
+      image: warshipSideCruiser13(),
+    },
+    {
+      key: "warship-side-dreadnought-13",
+      label: "Warship side heavy gun candidate",
+      file: "warship-side-heavy-gun-13.png",
+      source:
+        "Custom side-profile battleship silhouette using public-domain naval references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "13x13 current-compatible; chunky hull with fore/aft guns.",
+      image: warshipSideDreadnought13(),
+    },
+    {
+      key: "warship-side-stealth-13",
+      label: "Warship side stealth candidate",
+      file: "warship-side-stealth-13.png",
+      source:
+        "Custom side-profile modern destroyer silhouette using CC0 references",
+      license: "Project-owned with CC0 reference",
+      note: "13x13 current-compatible; angular modern silhouette with minimal clutter.",
+      image: warshipSideStealth13(),
+    },
+    {
+      key: "warship-side-carrier-13",
+      label: "Warship side carrier candidate",
+      file: "warship-side-carrier-13.png",
+      source:
+        "Custom side-profile carrier silhouette using public-domain naval references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "13x13 current-compatible; flat-deck carrier style, less gunship-like.",
+      image: warshipSideCarrier13(),
+    },
+    {
+      key: "warship-side-cruiser-17",
+      label: "Warship side cruiser detailed candidate",
+      file: "warship-side-cruiser-17.png",
+      source:
+        "Custom side-profile cruiser silhouette using public-domain naval references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "17x17 enlarged; bridge, gun, mast, and waterline read more clearly.",
+      image: warshipSideCruiser17(),
+    },
+    {
+      key: "warship-side-dreadnought-17",
+      label: "Warship side heavy gun detailed candidate",
+      file: "warship-side-heavy-gun-17.png",
+      source:
+        "Custom side-profile battleship silhouette using public-domain naval references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "17x17 enlarged; strongest classic battleship/gunship profile.",
+      image: warshipSideDreadnought17(),
+    },
+    {
+      key: "warship-side-stealth-17",
+      label: "Warship side stealth detailed candidate",
+      file: "warship-side-stealth-17.png",
+      source:
+        "Custom side-profile modern destroyer silhouette using CC0 references",
+      license: "Project-owned with CC0 reference",
+      note: "17x17 enlarged; angular stealth destroyer profile with clean deck line.",
+      image: warshipSideStealth17(),
+    },
+    {
+      key: "warship-side-carrier-17",
+      label: "Warship side carrier detailed candidate",
+      file: "warship-side-carrier-17.png",
+      source:
+        "Custom side-profile carrier silhouette using public-domain naval references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "17x17 enlarged; flat-top carrier profile with island superstructure.",
+      image: warshipSideCarrier17(),
+    },
+    {
+      key: "warship-side-profile-variants",
+      label: "Warship side-profile variants",
+      file: "warship-side-profile-variants.png",
+      source: "Generated from the side-profile warship variant set",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "Side-by-side sheet of current-compatible 13px and enlarged 17px silhouettes.",
+      image: warshipSideProfileVariantsStrip(),
     },
     {
       key: "warship-comparison",
@@ -1305,6 +1544,18 @@ async function writeProvenance(
     "  - Author: Lowder2",
     "  - License: CC0",
     "  - Usage: destroyer and battleship silhouette reference normalized into OpenFront grayscale bands.",
+    "- PublicDomainVectors naval ship silhouettes",
+    "  - URL: https://publicdomainvectors.org/en/navy-ship-silhouette-clip-art",
+    "  - License: Public domain/free of copyright per source page.",
+    "  - Usage: side-profile naval silhouette references for cruiser, carrier, and heavy-gun variants.",
+    "- FreeSVG/OpenClipart warship",
+    "  - URL: https://freesvg.org/a-warship",
+    "  - License: Public Domain",
+    "  - Usage: historical warship side-profile reference.",
+    "- OpenGameArt Battleships",
+    "  - URL: https://opengameart.org/content/battleships",
+    "  - License: CC0",
+    "  - Usage: battleship/game-token readability reference.",
     "- Kenney Pixel Shmup",
     "  - URL: https://kenney-assets.itch.io/pixel-shmup",
     "  - License: CC0 1.0 Universal",

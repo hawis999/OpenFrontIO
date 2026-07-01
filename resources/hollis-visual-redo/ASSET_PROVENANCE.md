@@ -13,6 +13,18 @@ This directory is preview-only. These files are candidate assets for review befo
   - Author: Lowder2
   - License: CC0
   - Usage: destroyer and battleship silhouette reference normalized into OpenFront grayscale bands.
+- PublicDomainVectors naval ship silhouettes
+  - URL: https://publicdomainvectors.org/en/navy-ship-silhouette-clip-art
+  - License: Public domain/free of copyright per source page.
+  - Usage: side-profile naval silhouette references for cruiser, carrier, and heavy-gun variants.
+- FreeSVG/OpenClipart warship
+  - URL: https://freesvg.org/a-warship
+  - License: Public Domain
+  - Usage: historical warship side-profile reference.
+- OpenGameArt Battleships
+  - URL: https://opengameart.org/content/battleships
+  - License: CC0
+  - Usage: battleship/game-token readability reference.
 - Kenney Pixel Shmup
   - URL: https://kenney-assets.itch.io/pixel-shmup
   - License: CC0 1.0 Universal
@@ -35,6 +47,15 @@ This directory is preview-only. These files are candidate assets for review befo
 - `warship-side-silhouette-13.png`: Warship side silhouette candidate. 13x13 current-compatible; less top-down, but much more readable as a warship. Source: Custom side-profile warship silhouette using CC0 references. License: Project-owned with CC0 reference.
 - `warship-side-detailed-17.png`: Warship side detailed candidate. 17x17 enlarged; bridge, guns, hull, and waterline have room to read. Source: Custom side-profile warship silhouette using CC0 references. License: Project-owned with CC0 reference.
 - `warship-side-silhouette-21.png`: Warship side large silhouette candidate. 21x21 enlarged; most recognizable silhouette, but requires unit-size work. Source: Custom side-profile warship silhouette using CC0 references. License: Project-owned with CC0 reference.
+- `warship-side-cruiser-13.png`: Warship side cruiser candidate. 13x13 current-compatible; bridge and forward gun are emphasized. Source: Custom side-profile cruiser silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `warship-side-heavy-gun-13.png`: Warship side heavy gun candidate. 13x13 current-compatible; chunky hull with fore/aft guns. Source: Custom side-profile battleship silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `warship-side-stealth-13.png`: Warship side stealth candidate. 13x13 current-compatible; angular modern silhouette with minimal clutter. Source: Custom side-profile modern destroyer silhouette using CC0 references. License: Project-owned with CC0 reference.
+- `warship-side-carrier-13.png`: Warship side carrier candidate. 13x13 current-compatible; flat-deck carrier style, less gunship-like. Source: Custom side-profile carrier silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `warship-side-cruiser-17.png`: Warship side cruiser detailed candidate. 17x17 enlarged; bridge, gun, mast, and waterline read more clearly. Source: Custom side-profile cruiser silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `warship-side-heavy-gun-17.png`: Warship side heavy gun detailed candidate. 17x17 enlarged; strongest classic battleship/gunship profile. Source: Custom side-profile battleship silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `warship-side-stealth-17.png`: Warship side stealth detailed candidate. 17x17 enlarged; angular stealth destroyer profile with clean deck line. Source: Custom side-profile modern destroyer silhouette using CC0 references. License: Project-owned with CC0 reference.
+- `warship-side-carrier-17.png`: Warship side carrier detailed candidate. 17x17 enlarged; flat-top carrier profile with island superstructure. Source: Custom side-profile carrier silhouette using public-domain naval references. License: Project-owned with public-domain/CC0 reference.
+- `warship-side-profile-variants.png`: Warship side-profile variants. Side-by-side sheet of current-compatible 13px and enlarged 17px silhouettes. Source: Generated from the side-profile warship variant set. License: Project-owned with public-domain/CC0 reference.
 - `warship-size-detail-comparison.png`: Warship size/detail comparison. Side-by-side: current-compatible 13px options versus enlarged options. Source: Generated from the four warship-focused candidates. License: Project-owned with CC0 reference.
 - `construction-progress-16x4.png`: Construction progress marker. Four 16x16 frames; intentionally no people and no noisy movement. Source: Custom minimal scaffold/crane marker. License: Project-owned.
 - `city-level-growth-16x5.png`: City level growth concept. Five 16x16 frames; more blocks appear as level increases. Source: Existing OpenFront building-level idea, redrawn as preview. License: Project-owned.
