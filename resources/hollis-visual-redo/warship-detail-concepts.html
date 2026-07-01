@@ -5,75 +5,22 @@
     <title>Hollis Warship Detail Concepts</title>
     <style>
       :root {
-        font-family:
-          Inter,
-          ui-sans-serif,
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          sans-serif;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         color: #101820;
         background: #f5f7fa;
       }
-      body {
-        margin: 0;
-        padding: 32px;
-      }
-      header,
-      table {
-        width: min(1120px, 100%);
-        margin: 0 auto 24px;
-      }
-      h1 {
-        margin: 0 0 8px;
-        font-size: 28px;
-      }
-      p,
-      span,
-      small,
-      em {
-        color: #53606b;
-      }
-      table {
-        border-collapse: collapse;
-        background: white;
-        border: 1px solid #d8e0e8;
-      }
-      th,
-      td {
-        padding: 16px;
-        border-bottom: 1px solid #e6ecf2;
-        vertical-align: middle;
-      }
-      th {
-        text-align: left;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        color: #53606b;
-      }
-      td:first-child {
-        width: 42%;
-      }
-      strong,
-      span,
-      small,
-      em {
-        display: block;
-      }
-      span {
-        margin-top: 5px;
-      }
-      small,
-      em {
-        margin-top: 8px;
-      }
-      em {
-        font-style: normal;
-        color: #8a5b11;
-        font-weight: 700;
-      }
+      body { margin: 0; padding: 32px; }
+      header, table { width: min(1120px, 100%); margin: 0 auto 24px; }
+      h1 { margin: 0 0 8px; font-size: 28px; }
+      p, span, small, em { color: #53606b; }
+      table { border-collapse: collapse; background: white; border: 1px solid #d8e0e8; }
+      th, td { padding: 16px; border-bottom: 1px solid #e6ecf2; vertical-align: middle; }
+      th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; color: #53606b; }
+      td:first-child { width: 42%; }
+      strong, span, small, em { display: block; }
+      span { margin-top: 5px; }
+      small, em { margin-top: 8px; }
+      em { font-style: normal; color: #8a5b11; font-weight: 700; }
       img {
         image-rendering: pixelated;
         image-rendering: crisp-edges;
@@ -86,576 +33,222 @@
           linear-gradient(45deg, transparent 75%, #eef2f6 75%),
           linear-gradient(-45deg, transparent 75%, #eef2f6 75%);
         background-color: #dfe6ee;
-        background-position:
-          0 0,
-          0 8px,
-          8px -8px,
-          -8px 0;
+        background-position: 0 0, 0 8px, 8px -8px, -8px 0;
         background-size: 16px 16px;
       }
-      .actual img {
-        width: auto;
-        height: auto;
-      }
+      .actual img { width: auto; height: auto; }
     </style>
   </head>
   <body>
     <header>
       <h1>Hollis Warship Detail Concepts</h1>
-      <p>
-        Warship-only sheet after rejecting the broad concept directions. The
-        first two new options fit the current 13px atlas; the larger ones show
-        what becomes possible if we accept a renderer-size change.
-      </p>
+      <p>Warship-only sheet after rejecting the broad concept directions. The first two new options fit the current 13px atlas; the larger ones show what becomes possible if we accept a renderer-size change.</p>
     </header>
     <table>
       <thead>
-        <tr>
-          <th>Candidate</th>
-          <th>Actual size</th>
-          <th>Zoomed inspection</th>
-        </tr>
+        <tr><th>Candidate</th><th>Actual size</th><th>Zoomed inspection</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
-            <strong>Warship destroyer candidate</strong>
-            <span
-              >11x11 actual cell; sharper bow and centerline gun hints.</span
-            >
-            <small
-              >OpenGameArt Sea Warfare Destroyer silhouette, normalized -
-              CC0</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-destroyer-11.png"
-              alt="Warship destroyer candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-destroyer-11.png"
-              alt="Warship destroyer candidate zoomed"
-              style="width: 176px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship battleship candidate</strong>
-            <span
-              >11x11 alternative; heavier silhouette than the destroyer.</span
-            >
-            <small
-              >OpenGameArt Sea Warfare Battleship silhouette, normalized -
-              CC0</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-battleship-11.png"
-              alt="Warship battleship candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-battleship-11.png"
-              alt="Warship battleship candidate zoomed"
-              style="width: 176px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship detailed candidate</strong>
-            <span
-              >13x13 full current atlas cell; most detail possible without
-              renderer changes.</span
-            >
-            <small
-              >Custom redraw using OpenGameArt Sea Warfare silhouette references
-              - Project-owned with CC0 reference</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-detailed-13.png"
-              alt="Warship detailed candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-detailed-13.png"
-              alt="Warship detailed candidate zoomed"
-              style="width: 208px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship silhouette candidate</strong>
-            <span
-              >13x13 full current atlas cell; cleaner and less noisy than the
-              detailed version.</span
-            >
-            <small
-              >Custom redraw using modern destroyer silhouette references -
-              Project-owned with CC0 reference</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-silhouette-13.png"
-              alt="Warship silhouette candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-silhouette-13.png"
-              alt="Warship silhouette candidate zoomed"
-              style="width: 208px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship detailed enlarged candidate</strong>
-            <span
-              >17x17; requires atlas/unit-size changes, but supports real
-              turrets/barrels.</span
-            >
-            <small
-              >Custom redraw using OpenGameArt Sea Warfare silhouette references
-              - Project-owned with CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-detailed-17.png"
-              alt="Warship detailed enlarged candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-detailed-17.png"
-              alt="Warship detailed enlarged candidate zoomed"
-              style="width: 136px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship large silhouette candidate</strong>
-            <span
-              >21x21; requires renderer changes, but reads as an actual
-              warship.</span
-            >
-            <small
-              >Custom redraw using modern battleship/destroyer silhouette
-              references - Project-owned with CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-silhouette-21.png"
-              alt="Warship large silhouette candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-silhouette-21.png"
-              alt="Warship large silhouette candidate zoomed"
-              style="width: 168px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side silhouette candidate</strong>
-            <span
-              >13x13 current-compatible; less top-down, but much more readable
-              as a warship.</span
-            >
-            <small
-              >Custom side-profile warship silhouette using CC0 references -
-              Project-owned with CC0 reference</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-silhouette-13.png"
-              alt="Warship side silhouette candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-silhouette-13.png"
-              alt="Warship side silhouette candidate zoomed"
-              style="width: 208px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side detailed candidate</strong>
-            <span
-              >17x17 enlarged; bridge, guns, hull, and waterline have room to
-              read.</span
-            >
-            <small
-              >Custom side-profile warship silhouette using CC0 references -
-              Project-owned with CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-detailed-17.png"
-              alt="Warship side detailed candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-detailed-17.png"
-              alt="Warship side detailed candidate zoomed"
-              style="width: 136px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side large silhouette candidate</strong>
-            <span
-              >21x21 enlarged; most recognizable silhouette, but requires
-              unit-size work.</span
-            >
-            <small
-              >Custom side-profile warship silhouette using CC0 references -
-              Project-owned with CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-silhouette-21.png"
-              alt="Warship side large silhouette candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-silhouette-21.png"
-              alt="Warship side large silhouette candidate zoomed"
-              style="width: 168px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side cruiser candidate</strong>
-            <span
-              >13x13 current-compatible; bridge and forward gun are
-              emphasized.</span
-            >
-            <small
-              >Custom side-profile cruiser silhouette using public-domain naval
-              references - Project-owned with public-domain/CC0 reference</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-cruiser-13.png"
-              alt="Warship side cruiser candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-cruiser-13.png"
-              alt="Warship side cruiser candidate zoomed"
-              style="width: 208px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side heavy gun candidate</strong>
-            <span
-              >13x13 current-compatible; chunky hull with fore/aft guns.</span
-            >
-            <small
-              >Custom side-profile battleship silhouette using public-domain
-              naval references - Project-owned with public-domain/CC0
-              reference</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-heavy-gun-13.png"
-              alt="Warship side heavy gun candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-heavy-gun-13.png"
-              alt="Warship side heavy gun candidate zoomed"
-              style="width: 208px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side stealth candidate</strong>
-            <span
-              >13x13 current-compatible; angular modern silhouette with minimal
-              clutter.</span
-            >
-            <small
-              >Custom side-profile modern destroyer silhouette using CC0
-              references - Project-owned with CC0 reference</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-stealth-13.png"
-              alt="Warship side stealth candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-stealth-13.png"
-              alt="Warship side stealth candidate zoomed"
-              style="width: 208px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side carrier candidate</strong>
-            <span
-              >13x13 current-compatible; flat-deck carrier style, less
-              gunship-like.</span
-            >
-            <small
-              >Custom side-profile carrier silhouette using public-domain naval
-              references - Project-owned with public-domain/CC0 reference</small
-            >
-            <em>Fits current 13px unit atlas.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-carrier-13.png"
-              alt="Warship side carrier candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-carrier-13.png"
-              alt="Warship side carrier candidate zoomed"
-              style="width: 208px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side cruiser detailed candidate</strong>
-            <span
-              >17x17 enlarged; bridge, gun, mast, and waterline read more
-              clearly.</span
-            >
-            <small
-              >Custom side-profile cruiser silhouette using public-domain naval
-              references - Project-owned with public-domain/CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-cruiser-17.png"
-              alt="Warship side cruiser detailed candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-cruiser-17.png"
-              alt="Warship side cruiser detailed candidate zoomed"
-              style="width: 136px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side heavy gun detailed candidate</strong>
-            <span
-              >17x17 enlarged; strongest classic battleship/gunship
-              profile.</span
-            >
-            <small
-              >Custom side-profile battleship silhouette using public-domain
-              naval references - Project-owned with public-domain/CC0
-              reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-heavy-gun-17.png"
-              alt="Warship side heavy gun detailed candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-heavy-gun-17.png"
-              alt="Warship side heavy gun detailed candidate zoomed"
-              style="width: 136px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side stealth detailed candidate</strong>
-            <span
-              >17x17 enlarged; angular stealth destroyer profile with clean deck
-              line.</span
-            >
-            <small
-              >Custom side-profile modern destroyer silhouette using CC0
-              references - Project-owned with CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-stealth-17.png"
-              alt="Warship side stealth detailed candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-stealth-17.png"
-              alt="Warship side stealth detailed candidate zoomed"
-              style="width: 136px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side carrier detailed candidate</strong>
-            <span
-              >17x17 enlarged; flat-top carrier profile with island
-              superstructure.</span
-            >
-            <small
-              >Custom side-profile carrier silhouette using public-domain naval
-              references - Project-owned with public-domain/CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-carrier-17.png"
-              alt="Warship side carrier detailed candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-carrier-17.png"
-              alt="Warship side carrier detailed candidate zoomed"
-              style="width: 136px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side carrier large candidate</strong>
-            <span
-              >21x21 enlarged; clearest aircraft carrier profile with deck and
-              island.</span
-            >
-            <small
-              >Custom side-profile carrier silhouette using public-domain naval
-              references - Project-owned with public-domain/CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-carrier-21.png"
-              alt="Warship side carrier large candidate actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-carrier-21.png"
-              alt="Warship side carrier large candidate zoomed"
-              style="width: 168px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship side-profile variants</strong>
-            <span
-              >Side-by-side sheet of current-compatible 13px and enlarged 17px
-              silhouettes.</span
-            >
-            <small
-              >Generated from the side-profile warship variant set -
-              Project-owned with public-domain/CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-side-profile-variants.png"
-              alt="Warship side-profile variants actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-side-profile-variants.png"
-              alt="Warship side-profile variants zoomed"
-              style="width: 640px"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Warship size/detail comparison</strong>
-            <span
-              >Side-by-side: current-compatible 13px options versus enlarged
-              options.</span
-            >
-            <small
-              >Generated from the four warship-focused candidates -
-              Project-owned with CC0 reference</small
-            >
-            <em>Requires atlas/unit-size renderer change.</em>
-          </td>
-          <td class="actual">
-            <img
-              src="candidates/warship-size-detail-comparison.png"
-              alt="Warship size/detail comparison actual size"
-            />
-          </td>
-          <td class="zoom">
-            <img
-              src="candidates/warship-size-detail-comparison.png"
-              alt="Warship size/detail comparison zoomed"
-              style="width: 640px"
-            />
-          </td>
-        </tr>
+      <tr>
+        <td>
+          <strong>Warship destroyer candidate</strong>
+          <span>11x11 actual cell; sharper bow and centerline gun hints.</span>
+          <small>OpenGameArt Sea Warfare Destroyer silhouette, normalized - CC0</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-destroyer-11.png" alt="Warship destroyer candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-destroyer-11.png" alt="Warship destroyer candidate zoomed" style="width:176px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship battleship candidate</strong>
+          <span>11x11 alternative; heavier silhouette than the destroyer.</span>
+          <small>OpenGameArt Sea Warfare Battleship silhouette, normalized - CC0</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-battleship-11.png" alt="Warship battleship candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-battleship-11.png" alt="Warship battleship candidate zoomed" style="width:176px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship detailed candidate</strong>
+          <span>13x13 full current atlas cell; most detail possible without renderer changes.</span>
+          <small>Custom redraw using OpenGameArt Sea Warfare silhouette references - Project-owned with CC0 reference</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-detailed-13.png" alt="Warship detailed candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-detailed-13.png" alt="Warship detailed candidate zoomed" style="width:208px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship silhouette candidate</strong>
+          <span>13x13 full current atlas cell; cleaner and less noisy than the detailed version.</span>
+          <small>Custom redraw using modern destroyer silhouette references - Project-owned with CC0 reference</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-silhouette-13.png" alt="Warship silhouette candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-silhouette-13.png" alt="Warship silhouette candidate zoomed" style="width:208px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship detailed enlarged candidate</strong>
+          <span>17x17; requires atlas/unit-size changes, but supports real turrets/barrels.</span>
+          <small>Custom redraw using OpenGameArt Sea Warfare silhouette references - Project-owned with CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-detailed-17.png" alt="Warship detailed enlarged candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-detailed-17.png" alt="Warship detailed enlarged candidate zoomed" style="width:136px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship large silhouette candidate</strong>
+          <span>21x21; requires renderer changes, but reads as an actual warship.</span>
+          <small>Custom redraw using modern battleship/destroyer silhouette references - Project-owned with CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-silhouette-21.png" alt="Warship large silhouette candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-silhouette-21.png" alt="Warship large silhouette candidate zoomed" style="width:168px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side silhouette candidate</strong>
+          <span>13x13 current-compatible; less top-down, but much more readable as a warship.</span>
+          <small>Custom side-profile warship silhouette using CC0 references - Project-owned with CC0 reference</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-silhouette-13.png" alt="Warship side silhouette candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-silhouette-13.png" alt="Warship side silhouette candidate zoomed" style="width:208px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side detailed candidate</strong>
+          <span>17x17 enlarged; bridge, guns, hull, and waterline have room to read.</span>
+          <small>Custom side-profile warship silhouette using CC0 references - Project-owned with CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-detailed-17.png" alt="Warship side detailed candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-detailed-17.png" alt="Warship side detailed candidate zoomed" style="width:136px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side large silhouette candidate</strong>
+          <span>21x21 enlarged; most recognizable silhouette, but requires unit-size work.</span>
+          <small>Custom side-profile warship silhouette using CC0 references - Project-owned with CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-silhouette-21.png" alt="Warship side large silhouette candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-silhouette-21.png" alt="Warship side large silhouette candidate zoomed" style="width:168px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side cruiser candidate</strong>
+          <span>13x13 current-compatible; bridge and forward gun are emphasized.</span>
+          <small>Custom side-profile cruiser silhouette using public-domain naval references - Project-owned with public-domain/CC0 reference</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-cruiser-13.png" alt="Warship side cruiser candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-cruiser-13.png" alt="Warship side cruiser candidate zoomed" style="width:208px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side heavy gun candidate</strong>
+          <span>13x13 current-compatible; chunky hull with fore/aft guns.</span>
+          <small>Custom side-profile battleship silhouette using public-domain naval references - Project-owned with public-domain/CC0 reference</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-heavy-gun-13.png" alt="Warship side heavy gun candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-heavy-gun-13.png" alt="Warship side heavy gun candidate zoomed" style="width:208px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side stealth candidate</strong>
+          <span>13x13 current-compatible; angular modern silhouette with minimal clutter.</span>
+          <small>Custom side-profile modern destroyer silhouette using CC0 references - Project-owned with CC0 reference</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-stealth-13.png" alt="Warship side stealth candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-stealth-13.png" alt="Warship side stealth candidate zoomed" style="width:208px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side carrier candidate</strong>
+          <span>13x13 current-compatible; flat-deck carrier style, less gunship-like.</span>
+          <small>Custom side-profile carrier silhouette using public-domain naval references - Project-owned with public-domain/CC0 reference</small>
+          <em>Fits current 13px unit atlas.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-carrier-13.png" alt="Warship side carrier candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-carrier-13.png" alt="Warship side carrier candidate zoomed" style="width:208px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side cruiser detailed candidate</strong>
+          <span>17x17 enlarged; bridge, gun, mast, and waterline read more clearly.</span>
+          <small>Custom side-profile cruiser silhouette using public-domain naval references - Project-owned with public-domain/CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-cruiser-17.png" alt="Warship side cruiser detailed candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-cruiser-17.png" alt="Warship side cruiser detailed candidate zoomed" style="width:136px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side heavy gun detailed candidate</strong>
+          <span>17x17 enlarged; strongest classic battleship/gunship profile.</span>
+          <small>Custom side-profile battleship silhouette using public-domain naval references - Project-owned with public-domain/CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-heavy-gun-17.png" alt="Warship side heavy gun detailed candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-heavy-gun-17.png" alt="Warship side heavy gun detailed candidate zoomed" style="width:136px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side stealth detailed candidate</strong>
+          <span>17x17 enlarged; angular stealth destroyer profile with clean deck line.</span>
+          <small>Custom side-profile modern destroyer silhouette using CC0 references - Project-owned with CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-stealth-17.png" alt="Warship side stealth detailed candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-stealth-17.png" alt="Warship side stealth detailed candidate zoomed" style="width:136px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side carrier detailed candidate</strong>
+          <span>17x17 enlarged; flat-top carrier profile with island superstructure.</span>
+          <small>Custom side-profile carrier silhouette using public-domain naval references - Project-owned with public-domain/CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-carrier-17.png" alt="Warship side carrier detailed candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-carrier-17.png" alt="Warship side carrier detailed candidate zoomed" style="width:136px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side carrier large candidate</strong>
+          <span>21x21 enlarged; clearest aircraft carrier profile with deck and island.</span>
+          <small>Custom side-profile carrier silhouette using public-domain naval references - Project-owned with public-domain/CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-carrier-21.png" alt="Warship side carrier large candidate actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-carrier-21.png" alt="Warship side carrier large candidate zoomed" style="width:168px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship side-profile variants</strong>
+          <span>Side-by-side sheet of current-compatible 13px and enlarged 17px silhouettes.</span>
+          <small>Generated from the side-profile warship variant set - Project-owned with public-domain/CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-side-profile-variants.png" alt="Warship side-profile variants actual size"></td>
+        <td class="zoom"><img src="candidates/warship-side-profile-variants.png" alt="Warship side-profile variants zoomed" style="width:640px"></td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Warship size/detail comparison</strong>
+          <span>Side-by-side: current-compatible 13px options versus enlarged options.</span>
+          <small>Generated from the four warship-focused candidates - Project-owned with CC0 reference</small>
+          <em>Requires atlas/unit-size renderer change.</em>
+        </td>
+        <td class="actual"><img src="candidates/warship-size-detail-comparison.png" alt="Warship size/detail comparison actual size"></td>
+        <td class="zoom"><img src="candidates/warship-size-detail-comparison.png" alt="Warship size/detail comparison zoomed" style="width:640px"></td>
+      </tr>
       </tbody>
     </table>
   </body>

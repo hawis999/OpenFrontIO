@@ -691,27 +691,88 @@ function cargoSide21(): ImageData {
   return img;
 }
 
+function cargoSideCabin13(): ImageData {
+  const img = image(13, 13);
+  hLine(img, 0, 10, 8, BAND_DARK);
+  hLine(img, 1, 12, 9, BAND_DARK);
+  hLine(img, 3, 10, 10, BAND_MID);
+  rect(img, 2, 4, 3, 4, BAND_LIGHT);
+  rect(img, 3, 2, 2, 2, BAND_MID);
+  rect(img, 6, 5, 2, 3, BAND_LIGHT);
+  rect(img, 8, 5, 2, 3, BAND_MID);
+  rect(img, 10, 6, 2, 2, BAND_LIGHT);
+  vLine(img, 4, 1, 3, BAND_DARK);
+  setPixel(img, 3, 5, BAND_DARK);
+  setPixel(img, 3, 6, BAND_WHITE);
+  hLine(img, 1, 11, 11, BAND_LIGHT);
+  return img;
+}
+
+function cargoSideBoxy17(): ImageData {
+  const img = image(17, 17);
+  hLine(img, 0, 14, 10, BAND_DARK);
+  hLine(img, 1, 16, 11, BAND_DARK);
+  hLine(img, 4, 13, 12, BAND_MID);
+  rect(img, 2, 5, 3, 5, BAND_LIGHT);
+  rect(img, 3, 3, 2, 2, BAND_MID);
+  for (let col = 0; col < 4; col++) {
+    rect(img, 6 + col * 2, 6, 2, 2, col % 2 === 0 ? BAND_LIGHT : BAND_MID);
+    rect(img, 6 + col * 2, 8, 2, 2, col % 2 === 0 ? BAND_MID : BAND_LIGHT);
+  }
+  vLine(img, 4, 1, 4, BAND_DARK);
+  setPixel(img, 3, 6, BAND_DARK);
+  setPixel(img, 3, 7, BAND_WHITE);
+  hLine(img, 2, 15, 13, BAND_LIGHT);
+  hLine(img, 4, 12, 14, BAND_DARK);
+  return img;
+}
+
+function cargoSideLongFerry21(): ImageData {
+  const img = image(21, 21);
+  hLine(img, 0, 18, 12, BAND_DARK);
+  hLine(img, 1, 20, 13, BAND_DARK);
+  hLine(img, 4, 17, 14, BAND_MID);
+  rect(img, 3, 6, 4, 6, BAND_LIGHT);
+  rect(img, 4, 3, 2, 3, BAND_MID);
+  rect(img, 8, 7, 3, 3, BAND_LIGHT);
+  rect(img, 11, 7, 3, 3, BAND_MID);
+  rect(img, 14, 7, 3, 3, BAND_LIGHT);
+  rect(img, 17, 8, 2, 2, BAND_MID);
+  vLine(img, 5, 1, 5, BAND_DARK);
+  rect(img, 4, 7, 1, 1, BAND_DARK);
+  rect(img, 6, 7, 1, 1, BAND_DARK);
+  hLine(img, 2, 19, 15, BAND_LIGHT);
+  hLine(img, 5, 15, 16, BAND_DARK);
+  return img;
+}
+
 function carrierCargoPairStrip(): ImageData {
   return composeFamily(
     [
       warshipSideCarrier13(),
       cargoSide13(),
       cargoSideStacked13(),
+      cargoSideCabin13(),
       warshipSideCarrier17(),
       cargoSide17(),
       cargoSideStacked17(),
+      cargoSideBoxy17(),
       warshipSideCarrier21(),
       cargoSide21(),
+      cargoSideLongFerry21(),
     ],
     [
       "carrier 13",
       "cargo 13",
       "stacked 13",
+      "cabin 13",
       "carrier 17",
       "cargo 17",
       "stacked 17",
+      "boxy 17",
       "carrier 21",
       "cargo 21",
+      "long 21",
     ],
     64,
   );
@@ -1123,6 +1184,16 @@ function buildCandidates(): Candidate[] {
       image: cargoSideStacked13(),
     },
     {
+      key: "trade-side-cabin-cargo-13",
+      label: "Trade ship compact cabin cargo candidate",
+      file: "trade-side-cabin-cargo-13.png",
+      source:
+        "Custom side-profile cargo ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "13x13 current-compatible; cabin-forward cargo hull closer to the tug/freighter reference style.",
+      image: cargoSideCabin13(),
+    },
+    {
       key: "trade-side-cargo-17",
       label: "Trade ship side cargo detailed candidate",
       file: "trade-side-cargo-17.png",
@@ -1143,6 +1214,16 @@ function buildCandidates(): Candidate[] {
       image: cargoSideStacked17(),
     },
     {
+      key: "trade-side-boxy-cargo-17",
+      label: "Trade ship boxy container detailed candidate",
+      file: "trade-side-boxy-cargo-17.png",
+      source:
+        "Custom side-profile container ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "17x17 enlarged; blocky cabin, clear container row, and stronger side-profile read.",
+      image: cargoSideBoxy17(),
+    },
+    {
       key: "trade-side-cargo-21",
       label: "Trade ship side cargo large candidate",
       file: "trade-side-cargo-21.png",
@@ -1151,6 +1232,16 @@ function buildCandidates(): Candidate[] {
       license: "Project-owned with public-domain/CC0 reference",
       note: "21x21 enlarged; clearest cargo ship profile, requires unit-size work.",
       image: cargoSide21(),
+    },
+    {
+      key: "trade-side-long-ferry-cargo-21",
+      label: "Trade ship long ferry cargo candidate",
+      file: "trade-side-long-ferry-cargo-21.png",
+      source:
+        "Custom side-profile cargo/ferry ship using public-domain cargo vessel references",
+      license: "Project-owned with public-domain/CC0 reference",
+      note: "21x21 enlarged; long blocky hull with cabin and cargo deck, closest to the large side-profile reference.",
+      image: cargoSideLongFerry21(),
     },
     {
       key: "warship-destroyer",

@@ -48,9 +48,12 @@ This directory is preview-only. These files are candidate assets for review befo
 - `trade-ship-cargo-5.png`: Trade ship cargo candidate. 5x5 actual cell; light deck/container pixels carry the cargo read. Source: Kenney Pirate Pack hull language, simplified by hand. License: CC0.
 - `trade-side-cargo-13.png`: Trade ship side cargo candidate. 13x13 current-compatible; side-profile cargo hull with container blocks. Source: Custom side-profile cargo ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
 - `trade-side-stacked-cargo-13.png`: Trade ship stacked cargo candidate. 13x13 current-compatible; more container detail while still tiny. Source: Custom side-profile container ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
+- `trade-side-cabin-cargo-13.png`: Trade ship compact cabin cargo candidate. 13x13 current-compatible; cabin-forward cargo hull closer to the tug/freighter reference style. Source: Custom side-profile cargo ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
 - `trade-side-cargo-17.png`: Trade ship side cargo detailed candidate. 17x17 enlarged; hull, stern cabin, and container sections read more clearly. Source: Custom side-profile cargo ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
 - `trade-side-stacked-cargo-17.png`: Trade ship stacked cargo detailed candidate. 17x17 enlarged; stronger container-stack silhouette for trade ships. Source: Custom side-profile container ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
+- `trade-side-boxy-cargo-17.png`: Trade ship boxy container detailed candidate. 17x17 enlarged; blocky cabin, clear container row, and stronger side-profile read. Source: Custom side-profile container ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
 - `trade-side-cargo-21.png`: Trade ship side cargo large candidate. 21x21 enlarged; clearest cargo ship profile, requires unit-size work. Source: Custom side-profile cargo ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
+- `trade-side-long-ferry-cargo-21.png`: Trade ship long ferry cargo candidate. 21x21 enlarged; long blocky hull with cabin and cargo deck, closest to the large side-profile reference. Source: Custom side-profile cargo/ferry ship using public-domain cargo vessel references. License: Project-owned with public-domain/CC0 reference.
 - `warship-destroyer-11.png`: Warship destroyer candidate. 11x11 actual cell; sharper bow and centerline gun hints. Source: OpenGameArt Sea Warfare Destroyer silhouette, normalized. License: CC0.
 - `warship-battleship-11.png`: Warship battleship candidate. 11x11 alternative; heavier silhouette than the destroyer. Source: OpenGameArt Sea Warfare Battleship silhouette, normalized. License: CC0.
 - `warship-detailed-13.png`: Warship detailed candidate. 13x13 full current atlas cell; most detail possible without renderer changes. Source: Custom redraw using OpenGameArt Sea Warfare silhouette references. License: Project-owned with CC0 reference.
@@ -89,3 +92,4 @@ This directory is preview-only. These files are candidate assets for review befo
 ## Regeneration
 
 Run `npx tsx scripts/visual-redo/generate-hollis-preview.ts` from the repo root.
+
