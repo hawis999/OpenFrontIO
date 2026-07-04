@@ -17,11 +17,11 @@
     "nameDebug": false
   },
   "terrain": {
-    "oceanColor": "#153b55",
-    "sandColor": "#b9ad82",
-    "plainsColor": "#8da579",
-    "highlandColor": "#92866b",
-    "mountainColor": "#b8bfc2"
+    "oceanColor": "#071f2b",
+    "sandColor": "#8f8465",
+    "plainsColor": "#53694d",
+    "highlandColor": "#67614f",
+    "mountainColor": "#8a908a"
   },
   "falloutBloom": {
     "broilSpeedCold": 0.0018,
@@ -74,28 +74,28 @@
   "mapOverlay": {
     "trailAlpha": 0.588,
     "defenseCheckerDarken": 0.7,
-    "territoryDefenseDarken": 0.85,
-    "territorySaturation": 0.72,
-    "territoryAlpha": 0.52,
-    "coordinateGridOpacity": 0.34,
+    "territoryDefenseDarken": 0.72,
+    "territorySaturation": 1.08,
+    "territoryAlpha": 0.74,
+    "coordinateGridOpacity": 0.18,
     "staleNukeBase": 0,
     "staleNukeVariation": 0.05,
     "staleNukeAlpha": 1,
     "staleNukeR": 0.05,
     "staleNukeG": 0.55,
     "staleNukeB": 0.07,
-    "highlightBrighten": 0.18,
-    "highlightFillBrighten": 0.1,
-    "highlightThicken": 0.8,
+    "highlightBrighten": 0.42,
+    "highlightFillBrighten": 0.28,
+    "highlightThicken": 1.25,
     "defensePostRange": 30,
-    "embargoTintRatio": 0.55,
-    "friendlyTintRatio": 0.48,
-    "embargoTintR": 0.95,
-    "embargoTintG": 0.22,
-    "embargoTintB": 0.14,
+    "embargoTintRatio": 0.68,
+    "friendlyTintRatio": 0.58,
+    "embargoTintR": 1.0,
+    "embargoTintG": 0.18,
+    "embargoTintB": 0.12,
     "friendlyTintR": 0.0,
-    "friendlyTintG": 0.74,
-    "friendlyTintB": 0.9
+    "friendlyTintG": 0.82,
+    "friendlyTintB": 1.0
   },
   "affiliation": {
     "selfR": 0.86,
@@ -115,11 +115,11 @@
     "railMinZoom": 2.6,
     "railFadeRange": 2.4,
     "railDetailZoom": 5.4,
-    "railAlpha": 0.9,
-    "railThickness": 0.82
+    "railAlpha": 0.98,
+    "railThickness": 1.05
   },
   "structure": {
-    "iconSize": 58,
+    "iconSize": 62,
     "dotsZoomThreshold": 1.05,
     "dotScale": 0.28,
     "iconScaleFactorZoomedOut": 2.8,
@@ -154,10 +154,10 @@
         "iconFill": 0.85
       }
     },
-    "highlightOutlineWidth": 0.035,
-    "highlightDimAlpha": 0.38,
-    "fillDarken": 0.78,
-    "borderDarken": 0.42,
+    "highlightOutlineWidth": 0.05,
+    "highlightDimAlpha": 0.3,
+    "fillDarken": 0.52,
+    "borderDarken": 0.18,
     "iconAlpha": 1.0,
     "iconR": 0.9,
     "iconG": 0.94,

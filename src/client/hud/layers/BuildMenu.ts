@@ -178,22 +178,22 @@ export class BuildMenu extends LitElement implements Controller {
     }
     .build-menu {
       position: fixed;
-      top: 50%;
+      bottom: 82px;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       z-index: 9999;
       background: linear-gradient(180deg, rgba(20, 33, 42, 0.98), rgba(12, 22, 30, 0.98));
-      padding: 15px;
+      padding: 10px 12px;
       box-shadow:
-        0 18px 42px rgba(0, 0, 0, 0.5),
+        0 -18px 42px rgba(0, 0, 0, 0.45),
         inset 0 1px rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(87, 191, 215, 0.22);
       border-radius: 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      max-width: 95vw;
-      max-height: 95vh;
+      max-width: min(880px, 94vw);
+      max-height: 42vh;
       overflow-y: auto;
     }
     .build-description {
@@ -207,8 +207,8 @@ export class BuildMenu extends LitElement implements Controller {
     }
     .build-button {
       position: relative;
-      width: 120px;
-      height: 140px;
+      width: 104px;
+      height: 116px;
       border: 1px solid rgba(87, 191, 215, 0.24);
       background-color: rgba(16, 26, 34, 0.92);
       color: #e8f1f2;
@@ -222,13 +222,13 @@ export class BuildMenu extends LitElement implements Controller {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 8px;
-      padding: 10px;
+      margin: 5px;
+      padding: 8px;
       gap: 5px;
     }
     .build-button:not(:disabled):hover {
       background-color: rgba(26, 48, 60, 0.96);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
       border-color: rgba(87, 191, 215, 0.6);
     }
     .build-button:not(:disabled):active {
@@ -252,7 +252,7 @@ export class BuildMenu extends LitElement implements Controller {
       margin-bottom: 5px;
     }
     .build-name {
-      font-size: 14px;
+      font-size: 13px;
       color: #f2c14e;
       font-weight: bold;
       margin-bottom: 5px;
@@ -298,13 +298,14 @@ export class BuildMenu extends LitElement implements Controller {
 
     @media (max-width: 768px) {
       .build-menu {
-        padding: 10px;
-        max-height: 80vh;
-        width: 80vw;
+        bottom: 74px;
+        padding: 8px;
+        max-height: 48vh;
+        width: 92vw;
       }
       .build-button {
-        width: 140px;
-        height: 120px;
+        width: 118px;
+        height: 104px;
         margin: 4px;
         padding: 6px;
         gap: 5px;
@@ -331,7 +332,8 @@ export class BuildMenu extends LitElement implements Controller {
     @media (max-width: 480px) {
       .build-menu {
         padding: 8px;
-        max-height: 70vh;
+        bottom: 72px;
+        max-height: 48vh;
       }
       .build-button {
         width: calc(50% - 6px);
