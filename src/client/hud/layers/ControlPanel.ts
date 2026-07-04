@@ -345,7 +345,7 @@ export class ControlPanel extends LitElement implements Controller {
     const { greenPercent, orangePercent } = this.calculateTroopBar();
     return html`
       <div
-        class="w-full h-6 border border-gray-600 rounded-md bg-gray-900/60 overflow-hidden relative"
+        class="w-full h-6 border border-[#38505d] rounded-sm bg-[#08131a]/80 overflow-hidden relative"
       >
         <div class="relative h-full">
           <div
@@ -384,7 +384,7 @@ export class ControlPanel extends LitElement implements Controller {
           <span
             class="text-[10px] font-bold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] ${this
               ._troopRateIsIncreasing
-              ? "text-green-400"
+              ? "text-[#57bfd7]"
               : "text-orange-400"}"
             >+${renderTroops(this.troopRate)}/s</span
           >
@@ -397,7 +397,7 @@ export class ControlPanel extends LitElement implements Controller {
     const { greenPercent, orangePercent } = this.calculateTroopBar();
     return html`
       <div
-        class="w-full h-6 border border-gray-600 rounded-md bg-gray-900/60 overflow-hidden relative"
+        class="w-full h-6 border border-[#38505d] rounded-sm bg-[#08131a]/80 overflow-hidden relative"
       >
         <div class="relative h-full">
           <div
@@ -468,7 +468,7 @@ export class ControlPanel extends LitElement implements Controller {
         <div
           class="flex items-center gap-1 shrink-0 border rounded-md font-bold text-sm py-0.5 px-1 w-[5.5rem] ${this
             ._troopRateIsIncreasing
-            ? "border-green-400"
+            ? "border-[#57bfd7]"
             : "border-orange-400"}"
           translate="no"
         >
@@ -485,7 +485,7 @@ export class ControlPanel extends LitElement implements Controller {
           />
           <span
             class="text-sm font-bold tabular-nums ${this._troopRateIsIncreasing
-              ? "text-green-400"
+              ? "text-[#57bfd7]"
               : "text-orange-400"}"
             >+${renderTroops(this.troopRate)}/s</span
           >
@@ -494,14 +494,14 @@ export class ControlPanel extends LitElement implements Controller {
         <div class="flex-1">${this.renderDesktopTroopBar()}</div>
         <!-- Gold -->
         <div
-          class="flex items-center gap-1 shrink-0 border rounded-md border-yellow-400 font-bold text-yellow-400 text-sm py-0.5 px-1 w-[4.5rem] relative"
+          class="flex items-center gap-1 shrink-0 border rounded-sm border-[#f2c14e]/80 font-bold text-[#f2c14e] text-sm py-0.5 px-1 w-[4.5rem] relative bg-[#101a22]/60"
           translate="no"
         >
           ${this._goldGain !== null
             ? keyed(
                 this._goldGainPulseId,
                 html`<span
-                  class="gold-gain-pop absolute -top-5 right-[5px] min-[1015px]:right-[9px] text-green-400 text-sm font-extrabold tabular-nums whitespace-nowrap pointer-events-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]"
+                  class="gold-gain-pop absolute -top-5 right-[5px] min-[1015px]:right-[9px] text-[#57bfd7] text-sm font-extrabold tabular-nums whitespace-nowrap pointer-events-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]"
                   >+${renderNumber(this._goldGain)}</span
                 >`,
               )
@@ -513,7 +513,7 @@ export class ControlPanel extends LitElement implements Controller {
       <!-- Row 2: attack ratio | slider -->
       <div class="flex items-center gap-1.5" translate="no">
         <div
-          class="flex items-center gap-1 shrink-0 border border-gray-600 rounded-md px-1 py-0.5 text-sm font-bold text-white cursor-pointer w-[8rem]"
+          class="flex items-center gap-1 shrink-0 border border-[#38505d] rounded-sm px-1 py-0.5 text-sm font-bold text-[#e8f1f2] cursor-pointer w-[8rem] bg-[#101a22]/60"
         >
           <img
             src=${swordIcon}
@@ -549,14 +549,14 @@ export class ControlPanel extends LitElement implements Controller {
       <div class="flex gap-2 items-center">
         <!-- Gold -->
         <div
-          class="flex items-center justify-center p-1 gap-0.5 border rounded-md border-yellow-400 font-bold text-yellow-400 text-xs w-1/5 shrink-0 relative"
+          class="flex items-center justify-center p-1 gap-0.5 border rounded-sm border-[#f2c14e]/80 font-bold text-[#f2c14e] text-xs w-1/5 shrink-0 relative bg-[#101a22]/60"
           translate="no"
         >
           ${this._goldGain !== null
             ? keyed(
                 this._goldGainPulseId,
                 html`<span
-                  class="gold-gain-pop absolute -top-5 right-[5px] min-[1015px]:right-[9px] text-green-400 text-xs font-extrabold tabular-nums whitespace-nowrap pointer-events-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]"
+                  class="gold-gain-pop absolute -top-5 right-[5px] min-[1015px]:right-[9px] text-[#57bfd7] text-xs font-extrabold tabular-nums whitespace-nowrap pointer-events-none drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]"
                   >+${renderNumber(this._goldGain)}</span
                 >`,
               )
@@ -620,7 +620,7 @@ export class ControlPanel extends LitElement implements Controller {
       </style>
       <div
         class="relative pointer-events-auto ${this._isVisible
-          ? "relative w-full text-sm px-2 py-1"
+          ? "relative w-full text-sm px-2 py-1 bg-[#101a22]/95 ring-1 ring-[#57bfd7]/20 text-[#e8f1f2] shadow-[0_-10px_28px_rgba(0,0,0,0.28)]"
           : "hidden"}"
         @contextmenu=${(e: MouseEvent) => e.preventDefault()}
       >

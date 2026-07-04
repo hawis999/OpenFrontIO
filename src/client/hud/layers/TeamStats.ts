@@ -130,7 +130,7 @@ export class TeamStats extends LitElement implements Controller {
 
     return html`
       <div
-        class="max-h-[30vh] overflow-x-hidden overflow-y-auto grid bg-slate-800/85 w-full text-white text-xs md:text-sm mt-2 rounded-lg"
+        class="max-h-[30vh] overflow-x-hidden overflow-y-auto grid bg-[#101a22]/92 w-full text-[#e8f1f2] text-xs md:text-sm mt-2 rounded-md ring-1 ring-[#57bfd7]/20"
         @contextmenu=${(e: MouseEvent) => e.preventDefault()}
       >
         <div
@@ -138,46 +138,46 @@ export class TeamStats extends LitElement implements Controller {
           style="--cols:${this.showUnits ? 5 : 4};"
         >
           <!-- Header -->
-          <div class="contents font-bold bg-slate-700/60">
-            <div class="p-1.5 md:p-2.5 text-center border-b border-slate-500">
+          <div class="contents font-bold bg-[#142632]/90">
+            <div class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]">
               ${translateText("leaderboard.team")}
             </div>
             ${this.showUnits
               ? html`
                   <div
-                    class="p-1.5 md:p-2.5 text-center border-b border-slate-500"
+                    class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]"
                   >
                     ${translateText("leaderboard.launchers")}
                   </div>
                   <div
-                    class="p-1.5 md:p-2.5 text-center border-b border-slate-500"
+                    class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]"
                   >
                     ${translateText("leaderboard.sams")}
                   </div>
                   <div
-                    class="p-1.5 md:p-2.5 text-center border-b border-slate-500"
+                    class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]"
                   >
                     ${translateText("leaderboard.warships")}
                   </div>
                   <div
-                    class="p-1.5 md:p-2.5 text-center border-b border-slate-500"
+                    class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]"
                   >
                     ${translateText("leaderboard.cities")}
                   </div>
                 `
               : html`
                   <div
-                    class="p-1.5 md:p-2.5 text-center border-b border-slate-500"
+                    class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]"
                   >
                     ${translateText("leaderboard.owned")}
                   </div>
                   <div
-                    class="p-1.5 md:p-2.5 text-center border-b border-slate-500"
+                    class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]"
                   >
                     ${translateText("leaderboard.gold")}
                   </div>
                   <div
-                    class="p-1.5 md:p-2.5 text-center border-b border-slate-500"
+                    class="p-1.5 md:p-2.5 text-center border-b border-[#38505d]"
                   >
                     ${translateText("leaderboard.maxtroops")}
                   </div>
@@ -189,43 +189,43 @@ export class TeamStats extends LitElement implements Controller {
             this.showUnits
               ? html`
                   <div
-                    class="contents hover:bg-slate-600/60 text-center cursor-pointer ${team.isMyTeam
+                    class="contents hover:bg-[#142632]/90 text-center cursor-pointer ${team.isMyTeam
                       ? "font-bold"
                       : ""}"
                   >
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.teamName}
                     </div>
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.totalLaunchers}
                     </div>
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.totalSAMs}
                     </div>
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.totalWarShips}
                     </div>
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.totalCities}
                     </div>
                   </div>
                 `
               : html`
                   <div
-                    class="contents hover:bg-slate-600/60 text-center cursor-pointer ${team.isMyTeam
+                    class="contents hover:bg-[#142632]/90 text-center cursor-pointer ${team.isMyTeam
                       ? "font-bold"
                       : ""}"
                   >
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.teamName}
                     </div>
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.totalScoreStr}
                     </div>
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.totalGold}
                     </div>
-                    <div class="py-1.5 border-b border-slate-500">
+                    <div class="py-1.5 border-b border-[#38505d]/75">
                       ${team.totalMaxTroops}
                     </div>
                   </div>
@@ -233,7 +233,7 @@ export class TeamStats extends LitElement implements Controller {
           )}
         </div>
         <button
-          class="team-stats-button"
+          class="m-1 mx-auto block rounded-sm border border-[#57bfd7]/30 bg-[#101a22]/90 px-2 py-0.5 text-xs text-[#e8f1f2] transition-colors hover:bg-[#142632]"
           aria-pressed=${String(this.showUnits)}
           @click=${() => {
             this.showUnits = !this.showUnits;

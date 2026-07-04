@@ -17,11 +17,11 @@
     "nameDebug": false
   },
   "terrain": {
-    "oceanColor": "#4785b5",
-    "sandColor": "#CCCB9E",
-    "plainsColor": "#BEDC8A",
-    "highlandColor": "#DCCB9E",
-    "mountainColor": "#e6e6e6"
+    "oceanColor": "#153b55",
+    "sandColor": "#b9ad82",
+    "plainsColor": "#8da579",
+    "highlandColor": "#92866b",
+    "mountainColor": "#b8bfc2"
   },
   "falloutBloom": {
     "broilSpeedCold": 0.0018,
@@ -75,54 +75,54 @@
     "trailAlpha": 0.588,
     "defenseCheckerDarken": 0.7,
     "territoryDefenseDarken": 0.85,
-    "territorySaturation": 0.85,
-    "territoryAlpha": 0.588,
-    "coordinateGridOpacity": 0.5,
+    "territorySaturation": 0.72,
+    "territoryAlpha": 0.52,
+    "coordinateGridOpacity": 0.34,
     "staleNukeBase": 0,
     "staleNukeVariation": 0.05,
     "staleNukeAlpha": 1,
     "staleNukeR": 0.05,
     "staleNukeG": 0.55,
     "staleNukeB": 0.07,
-    "highlightBrighten": 0.25,
-    "highlightFillBrighten": 0.15,
-    "highlightThicken": 1,
+    "highlightBrighten": 0.18,
+    "highlightFillBrighten": 0.1,
+    "highlightThicken": 0.8,
     "defensePostRange": 30,
-    "embargoTintRatio": 0.35,
-    "friendlyTintRatio": 0.35,
-    "embargoTintR": 1,
-    "embargoTintG": 0,
-    "embargoTintB": 0,
-    "friendlyTintR": 0,
-    "friendlyTintG": 1,
-    "friendlyTintB": 0
+    "embargoTintRatio": 0.55,
+    "friendlyTintRatio": 0.48,
+    "embargoTintR": 0.95,
+    "embargoTintG": 0.22,
+    "embargoTintB": 0.14,
+    "friendlyTintR": 0.0,
+    "friendlyTintG": 0.74,
+    "friendlyTintB": 0.9
   },
   "affiliation": {
-    "selfR": 0,
-    "selfG": 1,
-    "selfB": 0,
-    "allyR": 1,
-    "allyG": 1,
-    "allyB": 0,
-    "neutralR": 0.502,
-    "neutralG": 0.502,
-    "neutralB": 0.502,
-    "enemyR": 1,
-    "enemyG": 0,
-    "enemyB": 0
+    "selfR": 0.86,
+    "selfG": 0.93,
+    "selfB": 0.96,
+    "allyR": 0.0,
+    "allyG": 0.74,
+    "allyB": 0.9,
+    "neutralR": 0.56,
+    "neutralG": 0.6,
+    "neutralB": 0.58,
+    "enemyR": 0.95,
+    "enemyG": 0.22,
+    "enemyB": 0.14
   },
   "railroad": {
-    "railMinZoom": 3,
-    "railFadeRange": 2,
-    "railDetailZoom": 6,
-    "railAlpha": 1,
-    "railThickness": 1
+    "railMinZoom": 2.6,
+    "railFadeRange": 2.4,
+    "railDetailZoom": 5.4,
+    "railAlpha": 0.9,
+    "railThickness": 0.82
   },
   "structure": {
-    "iconSize": 60,
-    "dotsZoomThreshold": 1.2,
-    "dotScale": 0.3,
-    "iconScaleFactorZoomedOut": 3,
+    "iconSize": 58,
+    "dotsZoomThreshold": 1.05,
+    "dotScale": 0.28,
+    "iconScaleFactorZoomedOut": 2.8,
     "iconGrowZoom": 7,
     "shapes": {
       "City": {
@@ -132,6 +132,10 @@
       "Port": {
         "scale": 1.08,
         "iconFill": 0.85
+      },
+      "Airport": {
+        "scale": 1.06,
+        "iconFill": 0.82
       },
       "Factory": {
         "scale": 1.08,
@@ -150,14 +154,14 @@
         "iconFill": 0.85
       }
     },
-    "highlightOutlineWidth": 0.04,
-    "highlightDimAlpha": 0.3,
-    "fillDarken": 0.65,
-    "borderDarken": 0.1,
+    "highlightOutlineWidth": 0.035,
+    "highlightDimAlpha": 0.38,
+    "fillDarken": 0.78,
+    "borderDarken": 0.42,
     "iconAlpha": 1.0,
-    "iconR": 1.0,
-    "iconG": 1.0,
-    "iconB": 1.0,
+    "iconR": 0.9,
+    "iconG": 0.94,
+    "iconB": 0.92,
     "iconDarken": 0
   },
   "structureLevel": {
@@ -210,20 +214,20 @@
     "nameScaleFactor": 0.4,
     "nameScaleCap": 3,
     "troopSizeMultiplier": 0.6,
-    "outlineWidth": 1.4,
+    "outlineWidth": 1.65,
     "outlineR": 0.0,
     "outlineG": 0.0,
     "outlineB": 0.0,
     "outlineUsePlayerColor": true,
     "fillUsePlayerColor": false,
-    "nameShadeNation": 0.3,
-    "nameShadeBot": 0.4,
+    "nameShadeNation": 0.24,
+    "nameShadeBot": 0.34,
     "emojiRowOffset": 1.4,
     "statusRowOffset": 1.4,
     "statusOutlineWidth": 6,
     "hoverFadeAlpha": 0.5,
-    "hoverGlowWidth": 5,
-    "hoverGlowAlpha": 0.75
+    "hoverGlowWidth": 4,
+    "hoverGlowAlpha": 0.58
   },
   "fx": {
     "shockwaveRingWidth": 0.04,
@@ -246,18 +250,18 @@
     "gapTargetable": 4,
     "dashUntargetable": 2,
     "gapUntargetable": 6,
-    "lineR": 1,
-    "lineG": 1,
-    "lineB": 1,
-    "interceptR": 1,
-    "interceptG": 0.314,
-    "interceptB": 0.314,
-    "outlineR": 0.549,
-    "outlineG": 0.549,
-    "outlineB": 0.549,
-    "interceptOutlineR": 0.588,
-    "interceptOutlineG": 0.353,
-    "interceptOutlineB": 0.353,
+    "lineR": 0.84,
+    "lineG": 0.91,
+    "lineB": 0.95,
+    "interceptR": 0.95,
+    "interceptG": 0.34,
+    "interceptB": 0.2,
+    "outlineR": 0.08,
+    "outlineG": 0.15,
+    "outlineB": 0.19,
+    "interceptOutlineR": 0.48,
+    "interceptOutlineG": 0.18,
+    "interceptOutlineB": 0.12,
     "markerCircleRadius": 6,
     "markerXRadius": 40
   },
@@ -270,15 +274,15 @@
     "pulseAmplitude": 0.1,
     "pulseSpeed": 3,
     "fillAlphaOffset": 0.6,
-    "colorR": 1,
-    "colorG": 0,
-    "colorB": 0,
-    "selfColorR": 0,
-    "selfColorG": 1,
-    "selfColorB": 0,
-    "allyColorR": 1,
-    "allyColorG": 1,
-    "allyColorB": 0
+    "colorR": 0.95,
+    "colorG": 0.22,
+    "colorB": 0.14,
+    "selfColorR": 0.86,
+    "selfColorG": 0.93,
+    "selfColorB": 0.96,
+    "allyColorR": 0.0,
+    "allyColorG": 0.74,
+    "allyColorB": 0.9
   },
   "moveIndicator": {
     "startRadius": 13,
@@ -339,6 +343,10 @@
       "radius": 12,
       "intensity": 1
     },
+    "Airport": {
+      "radius": 14,
+      "intensity": 0.9
+    },
     "Factory": {
       "radius": 12,
       "intensity": 1
@@ -386,6 +394,10 @@
     "Train": {
       "radius": 6,
       "intensity": 0.5
+    },
+    "Cargo Plane": {
+      "radius": 7,
+      "intensity": 0.65
     }
   }
 }

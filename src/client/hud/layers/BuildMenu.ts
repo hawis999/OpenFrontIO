@@ -182,10 +182,13 @@ export class BuildMenu extends LitElement implements Controller {
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 9999;
-      background-color: #1e1e1e;
+      background: linear-gradient(180deg, rgba(20, 33, 42, 0.98), rgba(12, 22, 30, 0.98));
       padding: 15px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
+      box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.5),
+        inset 0 1px rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(87, 191, 215, 0.22);
+      border-radius: 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -206,12 +209,15 @@ export class BuildMenu extends LitElement implements Controller {
       position: relative;
       width: 120px;
       height: 140px;
-      border: 2px solid #444;
-      background-color: #2c2c2c;
-      color: white;
-      border-radius: 12px;
+      border: 1px solid rgba(87, 191, 215, 0.24);
+      background-color: rgba(16, 26, 34, 0.92);
+      color: #e8f1f2;
+      border-radius: 4px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        transform 0.18s ease;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -221,17 +227,17 @@ export class BuildMenu extends LitElement implements Controller {
       gap: 5px;
     }
     .build-button:not(:disabled):hover {
-      background-color: #3a3a3a;
-      transform: scale(1.05);
-      border-color: #666;
+      background-color: rgba(26, 48, 60, 0.96);
+      transform: translateY(-1px);
+      border-color: rgba(87, 191, 215, 0.6);
     }
     .build-button:not(:disabled):active {
-      background-color: #4a4a4a;
-      transform: scale(0.95);
+      background-color: rgba(12, 22, 30, 0.96);
+      transform: translateY(0);
     }
     .build-button:disabled {
-      background-color: #1a1a1a;
-      border-color: #333;
+      background-color: rgba(8, 19, 26, 0.86);
+      border-color: rgba(56, 80, 93, 0.6);
       cursor: not-allowed;
       opacity: 0.7;
     }
@@ -239,7 +245,7 @@ export class BuildMenu extends LitElement implements Controller {
       opacity: 0.5;
     }
     .build-button:disabled .build-cost {
-      color: #ff4444;
+      color: #d95b45;
     }
     .build-icon {
       font-size: 40px;
@@ -247,6 +253,7 @@ export class BuildMenu extends LitElement implements Controller {
     }
     .build-name {
       font-size: 14px;
+      color: #f2c14e;
       font-weight: bold;
       margin-bottom: 5px;
       text-align: center;
@@ -261,8 +268,8 @@ export class BuildMenu extends LitElement implements Controller {
       position: absolute;
       top: -10px;
       right: -10px;
-      background-color: #2c2c2c;
-      color: white;
+      background-color: #101a22;
+      color: #e8f1f2;
       padding: 2px 10px;
       border-radius: 10000px;
       transition: all 0.3s ease;
@@ -270,18 +277,18 @@ export class BuildMenu extends LitElement implements Controller {
       display: flex;
       justify-content: center;
       align-content: center;
-      border: 1px solid #444;
+      border: 1px solid rgba(87, 191, 215, 0.28);
     }
     .build-button:not(:disabled):hover > .build-count-chip {
-      background-color: #3a3a3a;
-      border-color: #666;
+      background-color: #142632;
+      border-color: rgba(87, 191, 215, 0.6);
     }
     .build-button:not(:disabled):active > .build-count-chip {
-      background-color: #4a4a4a;
+      background-color: #0c161e;
     }
     .build-button:disabled > .build-count-chip {
-      background-color: #1a1a1a;
-      border-color: #333;
+      background-color: #08131a;
+      border-color: rgba(56, 80, 93, 0.6);
       cursor: not-allowed;
     }
     .build-count {

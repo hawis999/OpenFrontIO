@@ -1,5 +1,6 @@
 import colorblindTheme from "./colorblind-theme.json";
 import defaultTheme from "./default-theme.json";
+import natoCommandTheme from "./nato-command-theme.json";
 import defaults from "./render-settings.json";
 
 /**
@@ -387,12 +388,13 @@ export interface RenderSettings {
   lightConfigs: Record<string, { radius: number; intensity: number }>;
 }
 
-export type ThemeName = "default" | "colorblind";
+export type ThemeName = "default" | "colorblind" | "natoCommand";
 
 // Typed so tsc validates each theme JSON against the ThemeSettings shape.
 const THEMES: Record<ThemeName, ThemeSettings> = {
   default: defaultTheme,
   colorblind: colorblindTheme,
+  natoCommand: natoCommandTheme,
 };
 
 /** Create fresh theme settings with defaults from the named theme JSON. */
@@ -409,7 +411,7 @@ export function createThemeSettings(
 export function createRenderSettings(): RenderSettings {
   return {
     ...(JSON.parse(JSON.stringify(defaults)) as Omit<RenderSettings, "theme">),
-    theme: createThemeSettings(),
+    theme: createThemeSettings("natoCommand"),
   };
 }
 

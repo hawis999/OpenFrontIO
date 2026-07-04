@@ -122,7 +122,9 @@ export class UnitDisplay extends LitElement implements Controller {
     }
 
     return html`
-      <div class="border-t border-white/10 p-0.5 w-full">
+      <div
+        class="border-t border-[#57bfd7]/20 bg-[#08131a]/70 p-0.5 w-full shadow-[0_-8px_24px_rgba(0,0,0,0.22)]"
+      >
         <div
           class="grid grid-rows-1 auto-cols-max grid-flow-col gap-0.5 w-fit mx-auto"
         >
@@ -240,7 +242,7 @@ export class UnitDisplay extends LitElement implements Controller {
         ${hovered
           ? html`
               <div
-                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 text-gray-200 text-center w-max text-xs bg-gray-800/90 backdrop-blur-xs rounded-sm p-1 z-[100] shadow-lg pointer-events-none"
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-1 text-[#e8f1f2] text-center w-max text-xs bg-[#101a22]/95 backdrop-blur-xs rounded-sm p-1 z-[100] shadow-lg ring-1 ring-[#57bfd7]/20 pointer-events-none"
               >
                 <div class="font-bold text-sm mb-1">
                   ${translateText(
@@ -252,14 +254,14 @@ export class UnitDisplay extends LitElement implements Controller {
                 </div>
                 ${unitType === UnitType.Warship
                   ? html`<div
-                      class="mt-1 px-2 py-1 text-[10px] text-cyan-300 border-t border-white/10"
+                      class="mt-1 px-2 py-1 text-[10px] text-[#57bfd7] border-t border-[#57bfd7]/15"
                     >
                       ⇧ ${translateText("build_menu.warship_shift_hint")}
                     </div>`
                   : null}
                 <div class="flex items-center justify-center gap-1">
                   <img src=${goldCoinIcon} width="13" height="13" />
-                  <span class="text-yellow-300"
+                  <span class="text-[#f2c14e]"
                     >${renderNumber(this.cost(unitType))}</span
                   >
                 </div>
@@ -269,9 +271,9 @@ export class UnitDisplay extends LitElement implements Controller {
         <div
           class="${this.canBuild(unitType)
             ? ""
-            : "opacity-40"} border border-slate-500 rounded-sm px-0.5 pb-0.5 flex items-center gap-0.5 cursor-pointer
-             ${selected ? "hover:bg-gray-400/10" : "hover:bg-gray-800"}
-             rounded-sm text-white ${selected ? "bg-slate-400/20" : ""}"
+            : "opacity-40"} border border-[#38505d] rounded-sm px-0.5 pb-0.5 flex items-center gap-0.5 cursor-pointer
+             ${selected ? "hover:bg-[#16303b]" : "hover:bg-[#142632]"}
+             rounded-sm text-[#e8f1f2] ${selected ? "bg-[#16303b] border-[#57bfd7]/70 shadow-[0_0_0_1px_rgba(87,191,215,0.22)]" : "bg-[#101a22]/80"}"
           @click=${() => {
             if (selected) {
               this.uiState.ghostStructure = null;
@@ -301,7 +303,7 @@ export class UnitDisplay extends LitElement implements Controller {
           @mouseleave=${() =>
             this.eventBus?.emit(new ToggleStructureEvent(null))}
         >
-          ${html`<div class="ml-0.5 text-[10px] relative -top-1 text-gray-400">
+          ${html`<div class="ml-0.5 text-[10px] relative -top-1 text-[#8ea8b6]">
             ${displayHotkey}
           </div>`}
           <div class="flex items-center gap-0.5 pt-0.5">

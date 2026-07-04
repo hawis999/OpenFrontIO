@@ -103,14 +103,14 @@ export class GameLeftSidebar extends LitElement implements Controller {
   render() {
     return html`
       <aside
-        class=${`fixed top-0 min-[1200px]:top-4 left-0 min-[1200px]:left-4 z-900 flex flex-col max-h-[calc(100vh-80px)] overflow-y-auto p-2 bg-gray-800/92 backdrop-blur-sm shadow-xs min-[1200px]:rounded-lg rounded-br-lg ${this.isLeaderboardShow || this.isTeamLeaderboardShow ? "max-[400px]:w-full max-[400px]:rounded-none" : ""} transition-all duration-300 ease-out transform ${
+        class=${`fixed top-0 min-[1200px]:top-4 left-0 min-[1200px]:left-4 z-900 flex flex-col max-h-[calc(100vh-80px)] overflow-y-auto p-2 bg-[#101a22]/95 backdrop-blur-sm shadow-xs ring-1 ring-[#57bfd7]/20 min-[1200px]:rounded-md rounded-br-md ${this.isLeaderboardShow || this.isTeamLeaderboardShow ? "max-[400px]:w-full max-[400px]:rounded-none" : ""} transition-all duration-300 ease-out transform ${
           this.isVisible ? "translate-x-0" : "hidden"
         }`}
         style="margin-top: ${this.barOffset}px;"
       >
         <div class="flex items-center gap-4 xl:gap-6 text-white">
           <div
-            class="cursor-pointer p-0.5 bg-gray-700/50 hover:bg-gray-600 border rounded-md border-slate-500 transition-colors"
+            class="cursor-pointer p-0.5 bg-[#142632]/80 hover:bg-[#1a303c] border rounded-sm border-[#57bfd7]/30 transition-colors"
             @click=${this.toggleLeaderboard}
             role="button"
             tabindex="0"
@@ -134,7 +134,7 @@ export class GameLeftSidebar extends LitElement implements Controller {
           ${this.isTeamGame
             ? html`
                 <div
-                  class="cursor-pointer p-0.5 bg-gray-700/50 hover:bg-gray-600 border rounded-md border-slate-500 transition-colors"
+                  class="cursor-pointer p-0.5 bg-[#142632]/80 hover:bg-[#1a303c] border rounded-sm border-[#57bfd7]/30 transition-colors"
                   @click=${this.toggleTeamLeaderboard}
                   role="button"
                   tabindex="0"

@@ -178,20 +178,20 @@ export class Leaderboard extends LitElement implements Controller {
         @contextmenu=${(e: Event) => e.preventDefault()}
       >
         <div
-          class="grid bg-gray-800/85 w-full text-xs md:text-xs lg:text-sm rounded-lg overflow-hidden"
+          class="grid bg-[#101a22]/92 w-full text-xs md:text-xs lg:text-sm rounded-md overflow-hidden ring-1 ring-[#57bfd7]/20 shadow-lg"
           style="grid-template-columns: minmax(24px, 30px) minmax(60px, 100px) minmax(45px, 70px) minmax(40px, 55px) minmax(55px, 105px);"
         >
-          <div class="contents font-bold bg-gray-700/60">
-            <div class="py-1 md:py-2 text-center border-b border-slate-500">
+          <div class="contents font-bold bg-[#142632]/90 text-[#e8f1f2]">
+            <div class="py-1 md:py-2 text-center border-b border-[#38505d]">
               #
             </div>
             <div
-              class="py-1 md:py-2 text-center border-b border-slate-500 truncate"
+              class="py-1 md:py-2 text-center border-b border-[#38505d] truncate"
             >
               ${translateText("leaderboard.player")}
             </div>
             <div
-              class="py-1 md:py-2 text-center border-b border-slate-500 cursor-pointer whitespace-nowrap truncate"
+              class="py-1 md:py-2 text-center border-b border-[#38505d] cursor-pointer whitespace-nowrap truncate hover:text-[#57bfd7]"
               @click=${() => this.setSort("tiles")}
             >
               ${translateText("leaderboard.owned")}
@@ -202,7 +202,7 @@ export class Leaderboard extends LitElement implements Controller {
                 : ""}
             </div>
             <div
-              class="py-1 md:py-2 text-center border-b border-slate-500 cursor-pointer whitespace-nowrap truncate"
+              class="py-1 md:py-2 text-center border-b border-[#38505d] cursor-pointer whitespace-nowrap truncate hover:text-[#57bfd7]"
               @click=${() => this.setSort("gold")}
             >
               ${translateText("leaderboard.gold")}
@@ -213,7 +213,7 @@ export class Leaderboard extends LitElement implements Controller {
                 : ""}
             </div>
             <div
-              class="py-1 md:py-2 text-center border-b border-slate-500 cursor-pointer whitespace-nowrap truncate"
+              class="py-1 md:py-2 text-center border-b border-[#38505d] cursor-pointer whitespace-nowrap truncate hover:text-[#57bfd7]"
               @click=${() => this.setSort("maxtroops")}
             >
               ${translateText("leaderboard.maxtroops")}
@@ -230,7 +230,7 @@ export class Leaderboard extends LitElement implements Controller {
             (p) => p.player.id(),
             (player, index) => html`
               <div
-                class="contents hover:bg-slate-600/60 ${player.isOnSameTeam
+                class="contents hover:bg-[#142632]/90 ${player.isOnSameTeam
                   ? "font-bold"
                   : ""} cursor-pointer"
                 @click=${() => this.handleRowClickPlayer(player.player)}
@@ -238,7 +238,7 @@ export class Leaderboard extends LitElement implements Controller {
                 <div
                   class="py-1 md:py-2 text-center ${index <
                   this.players.length - 1
-                    ? "border-b border-slate-500"
+                    ? "border-b border-[#38505d]/75"
                     : ""}"
                 >
                   ${player.position}
@@ -246,7 +246,7 @@ export class Leaderboard extends LitElement implements Controller {
                 <div
                   class="py-1 md:py-2 text-center ${index <
                   this.players.length - 1
-                    ? "border-b border-slate-500"
+                    ? "border-b border-[#38505d]/75"
                     : ""} truncate"
                 >
                   ${player.name}
@@ -254,7 +254,7 @@ export class Leaderboard extends LitElement implements Controller {
                 <div
                   class="py-1 md:py-2 text-center ${index <
                   this.players.length - 1
-                    ? "border-b border-slate-500"
+                    ? "border-b border-[#38505d]/75"
                     : ""}"
                 >
                   ${player.score}
@@ -262,7 +262,7 @@ export class Leaderboard extends LitElement implements Controller {
                 <div
                   class="py-1 md:py-2 text-center ${index <
                   this.players.length - 1
-                    ? "border-b border-slate-500"
+                    ? "border-b border-[#38505d]/75"
                     : ""}"
                 >
                   ${player.gold}
@@ -270,7 +270,7 @@ export class Leaderboard extends LitElement implements Controller {
                 <div
                   class="py-1 md:py-2 text-center ${index <
                   this.players.length - 1
-                    ? "border-b border-slate-500"
+                    ? "border-b border-[#38505d]/75"
                     : ""}"
                 >
                   ${player.maxTroops}
@@ -283,8 +283,8 @@ export class Leaderboard extends LitElement implements Controller {
 
       <button
         class="mt-2 p-0.5 px-1.5 md:px-2 text-xs md:text-xs lg:text-sm 
-        border rounded-md border-slate-500 transition-colors
-        text-white mx-auto block hover:bg-white/10 bg-gray-700/50"
+        border rounded-sm border-[#57bfd7]/30 transition-colors
+        text-[#e8f1f2] mx-auto block hover:bg-[#142632] bg-[#101a22]/90"
         @click=${() => {
           this.showTopFive = !this.showTopFive;
           this.updateLeaderboard();

@@ -179,7 +179,7 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
   }
 
   private getPlayerNameColor(isFriendly: boolean): string {
-    if (isFriendly) return "text-green-500";
+    if (isFriendly) return "text-[#57bfd7]";
     return "text-white";
   }
 
@@ -213,7 +213,7 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
   private displayUnitCount(player: PlayerView, type: UnitType, icon: string) {
     return !this.game.config().isUnitDisabled(type)
       ? html`<div
-          class="flex items-center justify-center gap-0.5 lg:gap-1 p-0.5 lg:p-1 border rounded-md border-gray-500 text-[10px] lg:text-xs w-9 lg:w-12 h-6 lg:h-7"
+          class="flex items-center justify-center gap-0.5 lg:gap-1 p-0.5 lg:p-1 border rounded-sm border-[#38505d] bg-[#101a22]/70 text-[10px] lg:text-xs w-9 lg:w-12 h-6 lg:h-7"
           translate="no"
         >
           <img
@@ -308,7 +308,7 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
         <div class="flex flex-col gap-1 shrink-0 w-28 md:w-36">
           <div class="flex items-center gap-1">
             <div
-              class="flex flex-1 items-center justify-center px-1 py-0.5 border rounded-md border-yellow-400 font-bold text-yellow-400 text-sm lg:gap-1"
+              class="flex flex-1 items-center justify-center px-1 py-0.5 border rounded-sm border-[#f2c14e]/80 font-bold text-[#f2c14e] text-sm lg:gap-1 bg-[#101a22]/60"
               translate="no"
             >
               <img src=${goldCoinIcon} width="13" height="13" />
@@ -317,7 +317,7 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
             <div
               class="flex flex-1 flex-col items-center justify-center text-xs font-bold ${attackingTroops >
               0
-                ? "text-aquarius"
+                ? "text-[#57bfd7]"
                 : "text-white/40"} drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]"
               translate="no"
             >
@@ -357,10 +357,10 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
             ${this.getRelationSmiley(player, myPlayer)}
             ${playerTeam !== "" && player.type() !== PlayerType.Bot
               ? html`<div class="flex flex-col leading-tight">
-                  <span class="text-gray-400 text-xs font-normal"
+                  <span class="text-[#8ea8b6] text-xs font-normal"
                     >${playerType}</span
                   >
-                  <span class="text-xs font-normal text-gray-400"
+                  <span class="text-xs font-normal text-[#8ea8b6]"
                     >[<span
                       style="color: ${themeProvider
                         .current()
@@ -370,7 +370,7 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
                     >]</span
                   >
                 </div>`
-              : html`<span class="text-gray-400 text-xs font-normal"
+              : html`<span class="text-[#8ea8b6] text-xs font-normal"
                   >${playerType}</span
                 >`}
             ${this.renderPlayerNameIcons(player)} ${allianceHtml ?? ""}
@@ -414,11 +414,11 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
 
     return html`
       <div
-        class="w-full h-5 lg:h-6 border border-gray-600 rounded-md bg-gray-900/60 overflow-hidden relative"
+        class="w-full h-5 lg:h-6 border border-[#38505d] rounded-sm bg-[#08131a]/80 overflow-hidden relative"
       >
         <div class="relative h-full">
           <div
-            class="absolute inset-y-0 left-0 w-full origin-left bg-sky-700 transition-transform duration-200 ease-out"
+            class="absolute inset-y-0 left-0 w-full origin-left bg-[#3f6fb5] transition-transform duration-200 ease-out"
             style="transform: scaleX(${greenPercent / 100});"
           ></div>
           <div
@@ -458,7 +458,7 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
 
     return html`
       <div class="p-2">
-        <div class="font-bold mb-1 ${isAlly ? "text-green-500" : "text-white"}">
+        <div class="font-bold mb-1 ${isAlly ? "text-[#57bfd7]" : "text-white"}">
           ${unit.owner().displayName()}
         </div>
         <div class="mt-1">
@@ -495,7 +495,7 @@ export class PlayerInfoOverlay extends LitElement implements Controller {
         @contextmenu=${(e: MouseEvent) => e.preventDefault()}
       >
         <div
-          class="bg-gray-800/92 backdrop-blur-sm shadow-xs min-[1200px]:rounded-lg sm:rounded-b-lg shadow-lg text-white text-lg lg:text-base w-full sm:w-[500px] overflow-hidden ${containerClasses}"
+          class="bg-[#101a22]/95 backdrop-blur-sm shadow-xs min-[1200px]:rounded-md sm:rounded-b-md shadow-lg ring-1 ring-[#57bfd7]/20 text-[#e8f1f2] text-lg lg:text-base w-full sm:w-[500px] overflow-hidden ${containerClasses}"
         >
           ${this.player !== null ? this.renderPlayerInfo(this.player) : ""}
           ${this.unit !== null ? this.renderUnitInfo(this.unit) : ""}

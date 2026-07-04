@@ -643,7 +643,7 @@ export class EventsDisplay extends LitElement implements Controller {
         ${tier2Events.length > 0
           ? html`
               <div
-                class="bg-gray-800/92 backdrop-blur-sm max-h-[12vh] lg:max-h-[22vh] overflow-y-auto rounded-lg opacity-90 events-container"
+                class="bg-[#101a22]/92 backdrop-blur-sm max-h-[12vh] lg:max-h-[22vh] overflow-y-auto rounded-md opacity-95 ring-1 ring-[#57bfd7]/15 events-container"
               >
                 <table
                   class="w-full border-collapse text-white text-xs lg:text-sm pointer-events-auto"
@@ -658,7 +658,7 @@ export class EventsDisplay extends LitElement implements Controller {
         ${tier1Events.length > 0 || showBetrayalTimer
           ? html`
               <div
-                class="bg-gray-800 backdrop-blur-sm max-h-[30vh] lg:max-h-[40vh] overflow-y-auto rounded-lg shadow-lg border-l-4 border-red-500 important-events-container"
+                class="bg-[#101a22]/95 backdrop-blur-sm max-h-[30vh] lg:max-h-[40vh] overflow-y-auto rounded-md shadow-lg border-l-4 border-[#d95b45] important-events-container"
               >
                 <table
                   class="w-full border-collapse text-white text-base lg:text-lg font-medium pointer-events-auto"

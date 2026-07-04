@@ -5,12 +5,12 @@
 
 @theme {
   --default-ring-width: 3px;
-  --default-ring-color: var(--color-malibu-blue);
+  --default-ring-color: var(--color-tactical-cyan);
   --font-display: "OpenFront", Inter, Arial, sans-serif;
 
   /* Openfront.io brand palette — see Openfront_Brand_Guidelines.pdf §4 */
-  --color-malibu-blue: #0084d1;
-  --color-aquarius: #3fa9f5;
+  --color-malibu-blue: #3f6fb5;
+  --color-aquarius: #57bfd7;
   --color-dawn-blue: #cccccc;
   --color-bright-white: #ffffff;
 
@@ -19,22 +19,27 @@
   --color-limestone: #999999;
 
   /* Background & decorative — not for standalone UI use */
-  --color-deep-navy: #0a1628;
-  --color-hex-cyan: #00c8ff;
-  --color-frame-orange: #f97316;
+  --color-deep-navy: #08131a;
+  --color-hex-cyan: #57bfd7;
+  --color-frame-orange: #d98b36;
+  --color-command-slate: #101a22;
+  --color-command-panel: #14212a;
+  --color-command-border: #38505d;
+  --color-tactical-cyan: #57bfd7;
+  --color-threat-red: #d95b45;
 
   /* App-specific surface colors */
-  --color-surface: #0a1628;
+  --color-surface: #101a22;
 
-  --shadow-malibu-blue: 0 0 15px rgba(0, 132, 209, 0.2);
-  --shadow-malibu-blue-soft: 0 0 12px rgba(0, 132, 209, 0.2);
-  --shadow-malibu-blue-strong: 0 0 15px rgba(0, 132, 209, 0.3);
-  --shadow-malibu-blue-pill: 0 0 6px rgba(0, 132, 209, 0.35);
-  --shadow-malibu-blue-ring-sm: 0 0 0 4px rgba(0, 132, 209, 0.2);
-  --shadow-malibu-blue-ring-lg: 0 0 0 6px rgba(0, 132, 209, 0.3);
-  --shadow-lobby-card-hover: 0 0 0 2px #0084d1, 0 0 20px rgba(0, 132, 209, 0.5);
+  --shadow-malibu-blue: 0 0 15px rgba(87, 191, 215, 0.16);
+  --shadow-malibu-blue-soft: 0 0 12px rgba(87, 191, 215, 0.16);
+  --shadow-malibu-blue-strong: 0 0 15px rgba(87, 191, 215, 0.24);
+  --shadow-malibu-blue-pill: 0 0 6px rgba(87, 191, 215, 0.3);
+  --shadow-malibu-blue-ring-sm: 0 0 0 4px rgba(87, 191, 215, 0.18);
+  --shadow-malibu-blue-ring-lg: 0 0 0 6px rgba(87, 191, 215, 0.24);
+  --shadow-lobby-card-hover: 0 0 0 2px #57bfd7, 0 0 20px rgba(87, 191, 215, 0.35);
   --shadow-action-card-hover:
-    0 0 0 1px #0084d1, 0 0 12px rgba(0, 132, 209, 0.35);
+    0 0 0 1px #57bfd7, 0 0 12px rgba(87, 191, 215, 0.3);
 }
 
 @layer base {
